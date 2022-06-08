@@ -1,4 +1,4 @@
- {
+{
   "env": {
     "browser": true,
     "es2021": true
@@ -16,8 +16,9 @@
     "quotes": ["error", "single", { "avoidEscape": true }],
     "max-len": [2, 120, {
       "ignoreStrings": true,
-      "ignoreTemplateLiterals": true,
       "ignoreComments": true
-    }]
+    }    
+  ],
+  "react/prop-types":0
 }
 }
