@@ -75,7 +75,7 @@ npm start
 
 - 피드 컴포넌트를 개발합니다.
 - 레이아웃을 인스타그램과 동일하게 구현해주시면 됩니다. (픽셀 단위까지 맞추실 필요는 없으나 보기에 자연스럽도록 개발해주세요.)
-- 각 Feed의 정보는 public/data 디렉토리에 json형식으로 구성하여 fetch 등을 이용하여 data를 요청해야 합니다.
+- 각 Feed의 정보는 public/data 디렉토리에 json형식으로 구성하여 fetch, axios 등을 이용하여 data를 요청해야 합니다.
 - Feed는 최소 3개이상 랜더링 되도록 구현해주세요.
 - 각각의 Feed에 댓글을 추가할 수 있도록 개발해주세요. (Enter key & 클릭으로 게시 가능하도록)
 - Feed는 화면 중앙에 위치 해야하며 모바일 대응이 가능해야 합니다.
@@ -88,3 +88,7 @@ npm start
 - Feeds의 Image가 로딩된 후 컴포넌트가 로딩 되도록 Lazy Loading을 구현해 주세요 (로딩바는 없어도 괜찮습니다. Hint: image.onload)
   - (아이콘은 자유롭게 사용하셔도 괜찮습니다. icon 라이브러리 설치 O)
   - 메인 Page 전체에 반응형 CSS가 적용 되어있는지 평가합니다. (Media Query 사용)
+
+## 참고 이미지
+
+[참고 이미지 링크](https://bclef25.notion.site/1ed6d5b2192b45eeb4104a67f6a77250)
