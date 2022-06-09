@@ -14,7 +14,7 @@ npm start
 
 - 위의 Repository를 포크(`fork`) 하여 개발 URL 제출해주세요.
   - [URL 제출 링크](https://forms.gle/LcXnfrgtQp5MRrdU8)
-- fork 레파지토리 명은 `wanted-pre-onboarding-fe`-[github user name]으로 생성해 주세요.
+- fork 레파지토리 명은 `wanted-pre-onboarding-fe`로 생성해 주세요.
 - 과제 수행 개수에 따라 기본적인 평가가 이루어집니다.
 - 코드의 일관성, 가독성, 함수 분리,컴포넌트 설계, 코드 퀄리티 등을 기준으로 세부적인 평가가 이루어집니다.
 - 해당 과제에 대한 해설은 개강 후 진행될 예정입니다.
