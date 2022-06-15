@@ -1,16 +1,66 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
+import { validateEmail, validatePassword } from '../utils/Validation';
+
 export default function Login() {
+  const inputEmail = useRef();
+  const inputPassword = useRef();
+
+  const [emailState, setEmailState] = useState(null); // null, false, true
+  const [passwordState, setPasswordState] = useState(null); // null, false, true
+
+  const onEmailChange = (e) => {
+    const {
+      currentTarget: { value },
+    } = e;
+    validate(value, validateEmail, setEmailState);
+  };
+  const onPasswordChange = (e) => {
+    const {
+      currentTarget: { value },
+    } = e;
+    validate(value, validatePassword, setPasswordState);
+  };
+  const validate = (value, validator, setter) => {
+    const state = validator(value);
+    setter(state);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const isValidate = emailState && passwordState;
+    if (!isValidate) return;
+
+    const email = getInputValue(inputEmail);
+    const password = getInputValue(inputPassword);
+  };
+
+  const getInputValue = (input) => {
+    const {
+      current: { value },
+    } = input;
+    return value;
+  };
+
   return (
     <Container>
-      <Box>
+      <Box onSubmit={onSubmit}>
         <Input
+          ref={inputEmail}
+          onChange={onEmailChange}
           placeholder="전화번호, 사용자 이름 또는 이메일"
-          isValidated={true}
+          isValidated={emailState === null || emailState}
         />
-        <Input placeholder="비밀번호" type="password" isValidated={true} />
-        <Button isValidated={true} type="submit">
+        <Input
+          ref={inputPassword}
+          onChange={onPasswordChange}
+          placeholder="비밀번호"
+          type="password"
+          isValidated={passwordState === null || passwordState}
+        />
+        <Button isValidated={emailState && passwordState} type="submit">
           로그인
         </Button>
       </Box>
