@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 
 import {
   MdHome,
@@ -20,21 +20,21 @@ export default function Navigation() {
           <Logo src="/images/logo.png" />
           <Search placeholder="검색" />
           <IconsWrapper>
-            <Button>
+            <RouterLink to="/">
               <MdHome size="29" />
-            </Button>
-            <Button>
+            </RouterLink>
+            <RouterLink to="/A">
               <MdOutlineNearMe size="29" />
-            </Button>
-            <Button>
+            </RouterLink>
+            <RouterLink to="/B">
               <MdOutlineAddBox size="29" />
-            </Button>
-            <Button>
+            </RouterLink>
+            <RouterLink to="/C">
               <MdOutlineExplore size="29" />
-            </Button>
-            <Button>
+            </RouterLink>
+            <RouterLink to="/D">
               <MdFavoriteBorder size="29" />
-            </Button>
+            </RouterLink>
             <Button>
               <MdLogout size="29" />
             </Button>
@@ -54,6 +54,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   border-bottom: 1px solid lightgray;
+  background-color: white;
 `;
 
 const Nav = styled.nav`
@@ -104,6 +105,8 @@ const IconsWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+const RouterLink = styled(Link)``;
 
 const Button = styled.div`
   cursor: pointer;
