@@ -8,6 +8,13 @@ const GlobalStyles = createGlobalStyle`
    outline:none;
    border:none;
  }
+ body {
+   overflow-y: scroll;
+ }
+ a {
+   color: black;
+   text-decoration: none;
+ }
 `;
 
 export default GlobalStyles;
