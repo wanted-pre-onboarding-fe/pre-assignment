@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import { validateEmail, validatePassword } from '../utils/validation';
 
+import { setUserEmail, setUserPassword } from '../utils/userStorage';
+
 export default function Login() {
   const inputEmail = useRef();
   const inputPassword = useRef();
@@ -35,6 +37,19 @@ export default function Login() {
 
     const email = getInputValue(inputEmail);
     const password = getInputValue(inputPassword);
+
+    if (email === 'msw@inu.ac.kr') {
+      if (password === 'A123456&') {
+        setUserEmail(email);
+        setUserPassword(password);
+
+        location.reload();
+      } else {
+        alert('비밀번호가 일치하지 않습니다.');
+      }
+    } else {
+      alert('존재하지 않는 이메일입니다.');
+    }
   };
 
   const getInputValue = (input) => {
