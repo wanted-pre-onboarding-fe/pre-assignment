@@ -5,19 +5,23 @@ import Message from './routes/main/Message';
 import Explore from './routes/main/Explore';
 import Login from './routes/Login';
 
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+
+import { getUserEmail, getUserPassword } from './utils/userStorage';
 
 function App() {
-  const isLogined = true;
+  const email = getUserEmail();
+  const password = getUserPassword();
+
+  const isLogined = email && password;
+
   return (
     <Routes>
       <Route element={isLogined ? <Navigation /> : <Login />}>
-        {/* <Route element={isLogined ? <Navigation /> : <Navigate to="/login" />}> */}
         <Route path="/" element={<Main />}></Route>
         <Route path="/Message" element={<Message />}></Route>
         <Route path="/Explore" element={<Explore />}></Route>
       </Route>
-      {/* <Route path="/login" element={<Login />}></Route> */}
     </Routes>
   );
 }
