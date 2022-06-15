@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
-import { validateEmail, validatePassword } from '../utils/Validation';
+import { validateEmail, validatePassword } from '../utils/validation';
 
 export default function Login() {
   const inputEmail = useRef();
