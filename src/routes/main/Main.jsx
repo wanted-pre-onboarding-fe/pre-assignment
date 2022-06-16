@@ -1,35 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Feed from '../../components/Feed';
 
+import { getData } from '../../utils/api';
+
 export default function Main() {
-  const getImage = (type, user) => {
-    return `/feeds/images/${type}/${user}.jpg`;
-  };
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      const json = await getData('/feeds/data.json');
+      setIsLoading(false);
+      if (json !== null) {
+        setData(json);
+      }
+    }
+    fetchData();
+  }, []);
+
   return (
-    <Wrapper>
-      <Feed
-        name="daningzzi"
-        profileURL={getImage('profile', 'daningzzi')}
-        postURL={getImage('post', 'daningzzi')}
-        like={439}
-      />
-      <Feed
-        name="ohsevely_28"
-        profileURL={getImage('profile', 'ohsevely_28')}
-        postURL={getImage('post', 'ohsevely_28')}
-        like={325}
-      />
-      <Feed
-        name="iimahni"
-        profileURL={getImage('profile', 'iimahni')}
-        postURL={getImage('post', 'iimahni')}
-        like={235}
-      />
-    </Wrapper>
+    <>
+      {isLoading ? (
+        <Loader>Loading...</Loader>
+      ) : (
+        <Wrapper>
+          {data.map((d) => {
+            return (
+              <Feed
+                key={d.name}
+                name={d.name}
+                profileURL={d.profileURL}
+                postURL={d.postURL}
+                like={d.like}
+                comments={d.comments}
+              />
+            );
+          })}
+        </Wrapper>
+      )}
+    </>
   );
 }
+
+const Loader = styled.div`
+  width: 100%;
+  height: 70vh;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  font-weight: 800;
+`;
 
 const Wrapper = styled.main`
   width: 100%;
