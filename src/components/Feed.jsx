@@ -29,6 +29,10 @@ export default function Feed({ name, profileURL, postURL, like, comments }) {
     }
   };
 
+  const [isLoading, setLoading] = useState(true);
+  if (isLoading)
+    return <ImageLoader src={postURL} onLoad={() => setLoading(false)} />;
+
   return (
     <Wrapper>
       <UserBox>
@@ -114,6 +118,10 @@ const UserName = styled.div`
 const PostBox = styled.div``;
 
 const PostImageBox = styled.div``;
+
+const ImageLoader = styled.img`
+  display: none;
+`;
 
 const PostImage = styled.img`
   width: 100%;
