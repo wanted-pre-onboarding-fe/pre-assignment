@@ -12,7 +12,18 @@ import {
   MdLogout,
 } from 'react-icons/md';
 
+import { removeUserEmail, removeUserPassword } from '../utils/userStorage';
+
 export default function Navigation() {
+  const onLogoutClick = () => {
+    if (window.confirm('로그아웃 하시겠습니까?')) {
+      removeUserEmail();
+      removeUserPassword();
+
+      location.reload();
+    }
+  };
+
   return (
     <>
       <Wrapper>
@@ -35,7 +46,7 @@ export default function Navigation() {
             <RouterLink to="/D">
               <MdFavoriteBorder size="29" />
             </RouterLink>
-            <Button>
+            <Button onClick={onLogoutClick}>
               <MdLogout size="29" />
             </Button>
           </IconsWrapper>
