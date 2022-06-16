@@ -5,15 +5,17 @@ const GNB = () => {
   return (
     <StyledGNB>
       <StyledNav>
-        <StyledInstaLogo alt="logo" src="instagram_logo.png" />
-        <StyledSearch type="text" placeholder="🔍 &nbsp; 검색" />
+        <StyledImg>
+          <StyledInstaLogo alt="logo" src="instagram_logo.png" />
+        </StyledImg>
+        <StyledSearch type="text" placeholder="&nbsp;🔍 &nbsp; 검색" />
         <StyledNavIcon>
           <StyledIcon className="fa-solid fa-house"></StyledIcon>
           <StyledIcon className="fa-regular fa-paper-plane"></StyledIcon>
           <StyledIcon className="fa-regular fa-square-plus"></StyledIcon>
           <StyledIcon className="fa-regular fa-compass"></StyledIcon>
           <StyledIcon className="fa-regular fa-heart"></StyledIcon>
-          <StyledIcon className="fa-solid fa-circle-user"></StyledIcon>
+          <StyledIcon className="fa-solid fa-arrow-right-from-bracket"></StyledIcon>
         </StyledNavIcon>
       </StyledNav>
     </StyledGNB>
@@ -22,7 +24,10 @@ const GNB = () => {
 
 const StyledGNB = styled.header`
   position: sticky;
-  height: 40px;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 60px;
   border: 1px solid #eaeaea;
   align-items: center;
 `;
@@ -31,7 +36,11 @@ const StyledNav = styled.div`
   display: flex;
   justify-content: space-evenly;
   max-width: 1800px;
-  padding: 5px;
+  padding: 15px;
+`;
+
+const StyledImg = styled.div`
+  width: 270px;
 `;
 
 const StyledInstaLogo = styled.img`
@@ -39,7 +48,8 @@ const StyledInstaLogo = styled.img`
 `;
 
 const StyledSearch = styled.input`
-  width: 200px;
+  width: 250px;
+  height: 30px;
   border-radius: 5px;
   background-color: #efefef;
 `;
@@ -47,11 +57,13 @@ const StyledSearch = styled.input`
 const StyledNavIcon = styled.div`
   display: flex;
   align-items: center;
+  margin-left: 60px;
 `;
 
 const StyledIcon = styled.i`
-  margin: 0 10px;
-  font-size: 20px;
+  margin: 0 12px;
+  font-size: 22px;
+  color: #262626;
 `;
 
 export default GNB;
