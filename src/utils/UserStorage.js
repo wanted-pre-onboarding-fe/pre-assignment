@@ -1,4 +1,4 @@
-import { getItem, setItem } from './storage';
+import { getItem, setItem, removeItem } from './storage';
 
 const KEY_EMAIL = 'email';
 const KEY_PASSWORD = 'password';
@@ -9,10 +9,16 @@ export const getUserEmail = () => {
 export const setUserEmail = (email) => {
   setItem(KEY_EMAIL, email);
 };
+export const removeUserEmail = () => {
+  removeItem(KEY_EMAIL);
+};
 
 export const getUserPassword = () => {
   return getItem(KEY_PASSWORD);
 };
 export const setUserPassword = (password) => {
   setItem(KEY_PASSWORD, password);
+};
+export const removeUserPassword = () => {
+  removeItem(KEY_PASSWORD);
 };

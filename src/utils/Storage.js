@@ -16,3 +16,9 @@ export const getItem = (key) => {
     return null;
   }
 };
+
+export const removeItem = (key) => {
+  try {
+    localStorage.removeItem(key);
+  } catch (e) {}
+};
