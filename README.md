@@ -84,7 +84,7 @@ npm start
   "[https://source.unsplash.com/random/600x500](https://source.unsplash.com/random/600x500)"
   "[https://source.unsplash.com/random/900x500](https://source.unsplash.com/random/900x500)"
   "[https://source.unsplash.com/random/700x1080](https://source.unsplash.com/random/700x1080)"
-- Feeds의 Image가 로딩된 후 컴포넌트가 로딩 되도록 Lazy Loading을 구현해 주세요 (로딩바는 없어도 괜찮습니다. Hint: image.onload)
+- Feeds의 Image가 로딩된 후 컴포넌트가 로딩 되도록 Loading을 구현해 주세요 (로딩바는 없어도 괜찮습니다. Hint: image.onload)
   - (아이콘은 자유롭게 사용하셔도 괜찮습니다. icon 라이브러리 설치 O)
   - 메인 Page 전체에 반응형 CSS가 적용 되어있는지 평가합니다. (Media Query 사용)
 
