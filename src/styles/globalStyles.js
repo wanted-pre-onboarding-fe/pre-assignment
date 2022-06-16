@@ -9,7 +9,9 @@ const GlobalStyles = createGlobalStyle`
    border:none;
  }
  body {
+  @media (min-width: 499px) {
    overflow-y: scroll;
+  }
  }
  a {
    color: black;
