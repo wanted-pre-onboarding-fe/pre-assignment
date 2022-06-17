@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "img": "https://source.unsplash.com/random/600x500",
+    "userId": "임종혁",
+    "comments": [
+      { "id": 1, "userId": "testUser", "comment": "더미 댓글 테스트" }
+    ]
+  },
+  {
+    "id": 2,
+    "img": "https://source.unsplash.com/random/900x500",
+    "userId": "wanted_pre_onbording",
+    "comments": []
+  },
+  {
+    "id": 3,
+    "img": "https://source.unsplash.com/random/700x1080",
+    "userId": "front_end",
+    "comments": []
+  }
+]

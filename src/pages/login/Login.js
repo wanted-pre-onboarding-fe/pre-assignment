@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import {
+  checkPWValidation,
+  checkUserIdValidation,
+} from '../../utils/validator';
 
 const Login = () => {
+  const [userId, setUserId] = useState('');
+  const [password, setPassword] = useState('');
+  const [isValidUserId, setIsValidUserId] = useState(false);
+  const [isValidPassword, setIsValidPassword] = useState(false);
+
+  const handleUserId = (e) => {
+    setUserId(e.target.value);
+    setIsValidUserId(checkUserIdValidation(e.target.value));
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+    setIsValidPassword(checkPWValidation(e.target.value));
+  };
+
   return (
     <StyledLogin>
       <StyledLoginBox>
@@ -9,10 +28,21 @@ const Login = () => {
           <StyledInstaImg alt="logo" src="instagram_logo.png" />
           <StyledID
             type="text"
+            value={userId}
             placeholder="전화번호, 사용자 이름 또는 이메일"
+            onChange={handleUserId}
+            // onBlur={checkUserIdValidation}
           />
-          <StyledPW type="password" placeholder="비밀번호" />
-          <StyledButton>로그인</StyledButton>
+          <StyledPW
+            type="password"
+            value={password}
+            placeholder="비밀번호"
+            onChange={handlePassword}
+            // onBlur={checkPWValidation}
+          />
+          <StyledButton isAbled={isValidUserId && isValidPassword}>
+            로그인
+          </StyledButton>
           <StyledLineBox>
             <StyledLine></StyledLine>
             <StyledOrText>또는</StyledOrText>
@@ -90,16 +120,20 @@ const StyledPW = styled.input`
   color: #8f8f8f;
 `;
 
-const StyledButton = styled.div`
+const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   width: 100%;
   height: 36px;
   margin: 15px 0;
-  background-color: #b2dffc;
+  background-color: ${(props) => (props.isAbled ? '#0195f7' : '#b2dffc')};
   color: #faffff;
   border-radius: 3px;
+  font-size: 16px;
   align-items: center;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 const StyledLineBox = styled.div`

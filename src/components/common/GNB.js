@@ -8,7 +8,7 @@ const GNB = () => {
         <StyledImg>
           <StyledInstaLogo alt="logo" src="instagram_logo.png" />
         </StyledImg>
-        <StyledSearch type="text" placeholder="&nbsp;🔍 &nbsp; 검색" />
+        <StyledSearch type="text" placeholder=" 🔍  검색" />
         <StyledNavIcon>
           <StyledIcon className="fa-solid fa-house"></StyledIcon>
           <StyledIcon className="fa-regular fa-paper-plane"></StyledIcon>
@@ -24,23 +24,32 @@ const GNB = () => {
 
 const StyledGNB = styled.header`
   position: sticky;
+  top: 0;
   display: flex;
   justify-content: center;
   width: 100vw;
   height: 60px;
   border: 1px solid #eaeaea;
+  background-color: #ffffff;
   align-items: center;
 `;
 
 const StyledNav = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  max-width: 1800px;
+  justify-content: space-between;
+  max-width: 1024px;
+  width: 100%;
   padding: 15px;
+  @media screen and (max-width: 576px) {
+    display: flex;
+    justify-content: space-between;
+  } ;
 `;
 
 const StyledImg = styled.div`
-  width: 270px;
+  display: flex;
+  flex: 1;
+  align-items: center;
 `;
 
 const StyledInstaLogo = styled.img`
@@ -48,22 +57,29 @@ const StyledInstaLogo = styled.img`
 `;
 
 const StyledSearch = styled.input`
-  width: 250px;
+  flex: 1;
   height: 30px;
   border-radius: 5px;
   background-color: #efefef;
+  @media screen and (max-width: 576px) {
+    display: none;
+  } ;
 `;
 
 const StyledNavIcon = styled.div`
   display: flex;
+  justify-content: end;
+  flex: 1;
   align-items: center;
-  margin-left: 60px;
 `;
 
 const StyledIcon = styled.i`
-  margin: 0 12px;
+  margin: 0 10px;
   font-size: 22px;
   color: #262626;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export default GNB;
