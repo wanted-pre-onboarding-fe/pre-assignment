@@ -63,7 +63,7 @@ export default function Login() {
     <Container>
       <Box>
         <LogoBox>
-          <Logo src="/images/logo.png" />
+          <Logo src={`${process.env.PUBLIC_URL}/images/logo.png`} />
         </LogoBox>
         <Form onSubmit={onSubmit}>
           <Input

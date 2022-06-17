@@ -28,7 +28,7 @@ export default function Navigation() {
     <>
       <Wrapper>
         <Nav>
-          <Logo src="/images/logo.png" />
+          <Logo src={`${process.env.PUBLIC_URL}/images/logo.png`} />
           <Search placeholder="검색" />
           <IconsWrapper>
             <RouterLink to="/">

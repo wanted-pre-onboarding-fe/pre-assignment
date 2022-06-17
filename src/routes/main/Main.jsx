@@ -11,7 +11,7 @@ export default function Main() {
 
   useEffect(() => {
     async function fetchData() {
-      const json = await getData('/feeds/data.json');
+      const json = await getData(`${process.env.PUBLIC_URL}/feeds/data.json`);
       setIsLoading(false);
       if (json !== null) {
         setData(json);

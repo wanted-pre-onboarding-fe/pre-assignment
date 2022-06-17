@@ -47,7 +47,7 @@ export default function Feed({
 
   useEffect(() => {
     const image = new Image();
-    image.src = postURL;
+    image.src = process.env.PUBLIC_URL + postURL;
     image.onload = (e) => {
       setLoading(false);
     };
@@ -59,13 +59,13 @@ export default function Feed({
   return (
     <Wrapper>
       <UserBox>
-        <UserImage src={profileURL} />
+        <UserImage src={process.env.PUBLIC_URL + profileURL} />
         <UserName>{name}</UserName>
         <MdMoreHoriz size="24" />
       </UserBox>
       <PostBox>
         <PostImageBox>
-          <PostImage src={postURL} />
+          <PostImage src={process.env.PUBLIC_URL + postURL} />
         </PostImageBox>
         <PostTextBox>
           <PostIconBox>
