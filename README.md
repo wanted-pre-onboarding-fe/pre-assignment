@@ -125,13 +125,13 @@ https://user-images.githubusercontent.com/83255812/174305841-af543a4b-d669-49dc-
 
 - [x] 피드의 이미지는 각각 다른 사이즈를 사용
 
-  - public/fees/images/post
+  - public/feeds/images/post
 
-    1. 1440x1770
-    2. 1440x1440
-    3. 750x499
-    4. 750x938
-    5. 816x816
+    - 1440x1770
+    - 1440x1440
+    - 750x499
+    - 750x938
+    - 816x816
 
 - [x] image.onload를 사용하여 이미지가 로딩이 완료된 후 컴포넌트가 로딩 되도록 구현
 
