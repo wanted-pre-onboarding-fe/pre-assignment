@@ -61,23 +61,28 @@ export default function Login() {
 
   return (
     <Container>
-      <Box onSubmit={onSubmit}>
-        <Input
-          ref={inputEmail}
-          onChange={onEmailChange}
-          placeholder="전화번호, 사용자 이름 또는 이메일"
-          isValidated={emailState === null || emailState}
-        />
-        <Input
-          ref={inputPassword}
-          onChange={onPasswordChange}
-          placeholder="비밀번호"
-          type="password"
-          isValidated={passwordState === null || passwordState}
-        />
-        <Button isValidated={emailState && passwordState} type="submit">
-          로그인
-        </Button>
+      <Box>
+        <LogoBox>
+          <Logo src="/images/logo.png" />
+        </LogoBox>
+        <Form onSubmit={onSubmit}>
+          <Input
+            ref={inputEmail}
+            onChange={onEmailChange}
+            placeholder="전화번호, 사용자 이름 또는 이메일"
+            isValidated={emailState === null || emailState}
+          />
+          <Input
+            ref={inputPassword}
+            onChange={onPasswordChange}
+            placeholder="비밀번호"
+            type="password"
+            isValidated={passwordState === null || passwordState}
+          />
+          <Button isValidated={emailState && passwordState} type="submit">
+            로그인
+          </Button>
+        </Form>
       </Box>
     </Container>
   );
@@ -90,16 +95,32 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Box = styled.form`
+
+const Box = styled.div`
   width: 350px;
   height: 395px;
   background-color: white;
   border: 1px solid #dbdbdb;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 `;
+
+const LogoBox = styled.div`
+  padding: 30px;
+`;
+
+const Logo = styled.img`
+  height: 100px;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+`;
+
 const Input = styled.input`
   width: 270px;
   height: 38px;
@@ -109,7 +130,9 @@ const Input = styled.input`
   border-color: ${(props) => (props.isValidated ? '#dbdbdb' : 'red')};
   border-radius: 5px;
   margin-bottom: 5px;
+  background-color: #fafafa;
 `;
+
 const Button = styled.button`
   width: 270px;
   height: 38px;
