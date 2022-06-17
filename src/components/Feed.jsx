@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -45,9 +45,16 @@ export default function Feed({
     addComment(index, name, comment);
   };
 
+  useEffect(() => {
+    const image = new Image();
+    image.src = postURL;
+    image.onload = (e) => {
+      setLoading(false);
+    };
+  }, []);
+
   const [isLoading, setLoading] = useState(true);
-  if (isLoading)
-    return <ImageLoader src={postURL} onLoad={() => setLoading(false)} />;
+  if (isLoading) return <></>;
 
   return (
     <Wrapper>
