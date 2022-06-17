@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Comment({ text }) {
-  const name = 'msw';
+export default function Comment({ name, comment }) {
   return (
     <Wrapper>
       <NameBox>{name}</NameBox>
-      <TextBox>{text}</TextBox>
+      <CommentBox>{comment}</CommentBox>
     </Wrapper>
   );
 }
@@ -21,7 +20,7 @@ const NameBox = styled.span`
   margin-right: 10px;
 `;
 
-const TextBox = styled.span`
+const CommentBox = styled.span`
   display: flex;
   flex: 1;
 `;

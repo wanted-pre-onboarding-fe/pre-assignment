@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -12,7 +12,15 @@ import {
 
 import Comment from './Comment';
 
-export default function Feed({ name, profileURL, postURL, like, comments }) {
+export default function Feed({
+  index,
+  name,
+  profileURL,
+  postURL,
+  like,
+  comments,
+  addComment,
+}) {
   const [comment, setComment] = useState('');
   const onCommentChange = (e) => {
     const {
@@ -21,12 +29,20 @@ export default function Feed({ name, profileURL, postURL, like, comments }) {
     setComment(value);
   };
 
+  const inputComment = useRef();
+
   const onSubmit = (e) => {
     e.preventDefault();
 
     if (!comment) {
       return;
     }
+
+    inputComment.current.value = '';
+    setComment('');
+
+    const name = 'msw';
+    addComment(index, name, comment);
   };
 
   const [isLoading, setLoading] = useState(true);
@@ -59,14 +75,18 @@ export default function Feed({ name, profileURL, postURL, like, comments }) {
         </PostTextBox>
       </PostBox>
       <CommentBox>
-        <Comment text="안녕?" />
-        <Comment text="asdasdasasdasdasasdasdasasdasdasasdasdasasdasdasasdasdasasdasdas" />
-        <Comment text="asdasdasasdasdasasdasdasasdasdasasdasdasasdasdasasdasdasasdasdas" />
+        {comments.map((comment, index) => (
+          <Comment key={index} {...comment} />
+        ))}
       </CommentBox>
       <InputBox onSubmit={onSubmit}>
         <MdOutlineSentimentSatisfied size="29" />
-        <CommentInput onChange={onCommentChange} placeholder="댓글 달기..." />
-        <SubmitButton isReady={comment.length}>게시</SubmitButton>
+        <InputComment
+          ref={inputComment}
+          onChange={onCommentChange}
+          placeholder="댓글 달기..."
+        />
+        <ButtonSubmit isReady={comment.length}>게시</ButtonSubmit>
       </InputBox>
     </Wrapper>
   );
@@ -169,7 +189,7 @@ const InputBox = styled.form`
   border-top: 1px solid #efefef;
 `;
 
-const CommentInput = styled.input`
+const InputComment = styled.input`
   background-color: transparent;
   color: #262626;
   display: flex;
@@ -177,9 +197,10 @@ const CommentInput = styled.input`
   padding: 12px;
 `;
 
-const SubmitButton = styled.button`
+const ButtonSubmit = styled.button`
   background-color: transparent;
   font-size: 15px;
   font-weight: 800;
   color: ${(props) => (props.isReady ? '#0094f6' : '#c5e7fd')};
+  cursor: ${(props) => (props.isReady ? 'pointer' : 'auto')};
 `;

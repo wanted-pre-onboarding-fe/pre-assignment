@@ -1,5 +1,6 @@
 [
   {
+    "index": 1,
     "name": "dlwlrma",
     "profileURL": "/feeds/images/profile/dlwlrma.jpg",
     "postURL": "/feeds/images/post/dlwlrma.jpg",
@@ -7,15 +8,16 @@
     "comments": [
       {
         "name": "msw",
-        "text": "안녕하세요?"
+        "comment": "안녕하세요?"
       },
       {
         "name": "msw",
-        "text": "반갑습니다~"
+        "comment": "반갑습니다~"
       }
     ]
   },
   {
+    "index": 2,
     "name": "iimahni",
     "profileURL": "/feeds/images/profile/iimahni.jpg",
     "postURL": "/feeds/images/post/iimahni.jpg",
@@ -23,11 +25,12 @@
     "comments": [
       {
         "name": "msw",
-        "text": "어디가세요?"
+        "comment": "어디가세요?"
       }
     ]
   },
   {
+    "index": 3,
     "name": "ohsevely_28",
     "profileURL": "/feeds/images/profile/ohsevely_28.jpg",
     "postURL": "/feeds/images/post/ohsevely_28.jpg",
@@ -35,11 +38,12 @@
     "comments": [
       {
         "name": "msw",
-        "text": "누구세요?"
+        "comment": "가나다라마바사"
       }
     ]
   },
   {
+    "index": 4,
     "name": "daningzzi",
     "profileURL": "/feeds/images/profile/daningzzi.jpg",
     "postURL": "/feeds/images/post/daningzzi.jpg",
@@ -47,7 +51,20 @@
     "comments": [
       {
         "name": "msw",
-        "text": "하하하"
+        "comment": "하하하"
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "name": "yesall12",
+    "profileURL": "/feeds/images/profile/yesall12.jpg",
+    "postURL": "/feeds/images/post/yesall12.jpg",
+    "like": "748",
+    "comments": [
+      {
+        "name": "msw",
+        "comment": "호호호"
       }
     ]
   }

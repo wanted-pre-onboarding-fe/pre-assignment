@@ -20,21 +20,35 @@ export default function Main() {
     fetchData();
   }, []);
 
+  const addComment = (index, name, comment) => {
+    setData((prev) => {
+      const copy = [...prev];
+      for (const item of copy) {
+        if (item.index === index) {
+          item.comments.push({ name, comment });
+        }
+      }
+      return copy;
+    });
+  };
+
   return (
     <>
       {isLoading ? (
         <Loader>Loading...</Loader>
       ) : (
         <Wrapper>
-          {data.map((d) => {
+          {data.map((item) => {
             return (
               <Feed
-                key={d.name}
-                name={d.name}
-                profileURL={d.profileURL}
-                postURL={d.postURL}
-                like={d.like}
-                comments={d.comments}
+                key={item.index}
+                index={item.index}
+                name={item.name}
+                profileURL={item.profileURL}
+                postURL={item.postURL}
+                like={item.like}
+                comments={item.comments}
+                addComment={addComment}
               />
             );
           })}
