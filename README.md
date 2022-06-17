@@ -9,7 +9,7 @@ https://corgi-world.github.io/wanted-pre-onboarding-fe/
 |  Email   | msw@inu.ac.kr |
 | Password |   A123456&    |
 
-<video src="./preview.mp4" width="50%"></video>
+<video src="./preview.mov" width="50%"></video>
 
 ## 구현
 
