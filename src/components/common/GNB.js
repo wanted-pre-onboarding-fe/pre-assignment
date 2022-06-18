@@ -2,6 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const GNB = () => {
+  const handleLogout = () => {
+    localStorage.removeItem('userInfo');
+    window.location.reload();
+  };
+
   return (
     <StyledGNB>
       <StyledNav>
@@ -11,11 +16,11 @@ const GNB = () => {
         <StyledSearch type="text" placeholder=" 🔍  검색" />
         <StyledNavIcon>
           <StyledIcon className="fa-solid fa-house"></StyledIcon>
-          <StyledIcon className="fa-regular fa-paper-plane"></StyledIcon>
-          <StyledIcon className="fa-regular fa-square-plus"></StyledIcon>
-          <StyledIcon className="fa-regular fa-compass"></StyledIcon>
           <StyledIcon className="fa-regular fa-heart"></StyledIcon>
-          <StyledIcon className="fa-solid fa-arrow-right-from-bracket"></StyledIcon>
+          <StyledIcon
+            className="fa-solid fa-arrow-right-from-bracket"
+            onClick={handleLogout}
+          ></StyledIcon>
         </StyledNavIcon>
       </StyledNav>
     </StyledGNB>
@@ -36,14 +41,9 @@ const StyledGNB = styled.header`
 
 const StyledNav = styled.div`
   display: flex;
-  justify-content: space-between;
   max-width: 1024px;
   width: 100%;
   padding: 15px;
-  @media screen and (max-width: 576px) {
-    display: flex;
-    justify-content: space-between;
-  } ;
 `;
 
 const StyledImg = styled.div`
@@ -77,9 +77,7 @@ const StyledIcon = styled.i`
   margin: 0 10px;
   font-size: 22px;
   color: #262626;
-  :hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `;
 
 export default GNB;

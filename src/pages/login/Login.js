@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 import styled from 'styled-components';
 import {
   checkPWValidation,
@@ -6,20 +6,42 @@ import {
 } from '../../utils/validator';
 
 const Login = () => {
+  const [userList, setUserList] = useState([]);
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
-  const [isValidUserId, setIsValidUserId] = useState(false);
-  const [isValidPassword, setIsValidPassword] = useState(false);
+  const [isValidUserId, setIsValidUserId] = useState(true);
+  const [isValidPassword, setIsValidPassword] = useState(true);
+  const userIdRef = useRef(null);
+  const passwordRef = useRef(null);
 
-  const handleUserId = (e) => {
-    setUserId(e.target.value);
-    setIsValidUserId(checkUserIdValidation(e.target.value));
+  const handleUserId = (value) => {
+    setUserId(value);
+    setIsValidUserId(checkUserIdValidation(value));
   };
 
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-    setIsValidPassword(checkPWValidation(e.target.value));
+  const handlePassword = (value) => {
+    setPassword(value);
+    setIsValidPassword(checkPWValidation(value));
   };
+
+  const handleLogin = () => {
+    const user = userList.find(
+      (user) => user.email === userId && user.password === password
+    );
+    if (user === undefined) {
+      return alert('등록된 회원이 아닙니다!');
+    }
+    localStorage.setItem('userInfo', true);
+    window.location.reload();
+  };
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/userData.json')
+      .then((res) => res.json())
+      .then((res) => {
+        setUserList(res);
+      });
+  }, []);
 
   return (
     <StyledLogin>
@@ -28,19 +50,35 @@ const Login = () => {
           <StyledInstaImg alt="logo" src="instagram_logo.png" />
           <StyledID
             type="text"
-            value={userId}
             placeholder="전화번호, 사용자 이름 또는 이메일"
-            onChange={handleUserId}
-            // onBlur={checkUserIdValidation}
+            // value={userId}
+            // onChange={handleUserId}
+            isValid={isValidUserId}
+            ref={userIdRef}
+            onKeyUp={() => {
+              handleUserId(userIdRef.current.value);
+            }}
           />
           <StyledPW
             type="password"
-            value={password}
             placeholder="비밀번호"
-            onChange={handlePassword}
-            // onBlur={checkPWValidation}
+            // value={password}
+            // onChange={handlePassword}
+            isValid={isValidPassword}
+            ref={passwordRef}
+            onKeyUp={() => {
+              handlePassword(passwordRef.current.value);
+            }}
           />
-          <StyledButton isAbled={isValidUserId && isValidPassword}>
+          <StyledButton
+            disabled={
+              !isValidUserId ||
+              !isValidPassword ||
+              userId === '' ||
+              password === ''
+            }
+            onClick={handleLogin}
+          >
             로그인
           </StyledButton>
           <StyledLineBox>
@@ -102,7 +140,7 @@ const StyledInstaImg = styled.img`
 const StyledID = styled.input`
   width: 100%;
   height: 36px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid ${(props) => (props.isValid ? '#dbdbdb' : 'red')};
   border-radius: 2px;
   padding: 0 5px;
   background-color: #fafafa;
@@ -113,7 +151,7 @@ const StyledID = styled.input`
 const StyledPW = styled.input`
   width: 100%;
   height: 36px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid ${(props) => (props.isValid ? '#dbdbdb' : 'red')};
   border-radius: 2px;
   padding: 0 5px;
   background-color: #fafafa;
@@ -126,14 +164,12 @@ const StyledButton = styled.button`
   width: 100%;
   height: 36px;
   margin: 15px 0;
-  background-color: ${(props) => (props.isAbled ? '#0195f7' : '#b2dffc')};
+  background-color: ${(props) => (props.disabled ? '#b2dffc' : '#0195f7')};
   color: #faffff;
   border-radius: 3px;
   font-size: 16px;
   align-items: center;
-  :hover {
-    cursor: pointer;
-  }
+  ${(props) => !props.disabled && 'cursor: pointer;'}
 `;
 
 const StyledLineBox = styled.div`

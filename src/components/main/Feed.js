@@ -28,7 +28,7 @@ const Feed = ({ value }) => {
         {
           id: Math.random() * 100,
           comment: newComment,
-          userId: '테스트 유저',
+          userId: 'test_user',
         },
       ]);
       setNewComment('');
