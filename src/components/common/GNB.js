@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { GLOBAL_COLOR, GLOBAL_WIDTH } from '../../styles/constants';
 
 const GNB = () => {
   const handleLogout = () => {
@@ -11,7 +12,7 @@ const GNB = () => {
     <StyledGNB>
       <StyledNav>
         <StyledImg>
-          <StyledInstaLogo alt="logo" src="instagram_logo.png" />
+          <StyledInstaLogo alt="logo" src="images/instagram_logo.png" />
         </StyledImg>
         <StyledSearch type="text" placeholder=" 🔍  검색" />
         <StyledNavIcon>
@@ -34,14 +35,14 @@ const StyledGNB = styled.header`
   justify-content: center;
   width: 100vw;
   height: 60px;
-  border: 1px solid #eaeaea;
-  background-color: #ffffff;
+  border: 1px solid ${GLOBAL_COLOR.BORDER};
+  background-color: ${GLOBAL_COLOR.WHITE};
   align-items: center;
 `;
 
 const StyledNav = styled.div`
   display: flex;
-  max-width: 1024px;
+  max-width: ${GLOBAL_WIDTH.MAX_WIDTH};
   width: 100%;
   padding: 15px;
 `;
@@ -61,7 +62,7 @@ const StyledSearch = styled.input`
   height: 30px;
   border-radius: 5px;
   background-color: #efefef;
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: ${GLOBAL_WIDTH.MOBILE_WIDTH}) {
     display: none;
   } ;
 `;
@@ -74,7 +75,7 @@ const StyledNavIcon = styled.div`
 `;
 
 const StyledIcon = styled.i`
-  margin: 0 10px;
+  margin-left: 20px;
   font-size: 22px;
   color: #262626;
   cursor: pointer;

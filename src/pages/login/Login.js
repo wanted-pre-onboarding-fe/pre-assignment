@@ -1,5 +1,7 @@
 import React, { useEffect, useId, useRef, useState } from 'react';
 import styled from 'styled-components';
+import { getUserData } from '../../api/api';
+import { GLOBAL_COLOR } from '../../styles/constants';
 import {
   checkPWValidation,
   checkUserIdValidation,
@@ -36,18 +38,14 @@ const Login = () => {
   };
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/userData.json')
-      .then((res) => res.json())
-      .then((res) => {
-        setUserList(res);
-      });
+    getUserData().then((res) => setUserList(res));
   }, []);
 
   return (
     <StyledLogin>
       <StyledLoginBox>
         <StyledInput>
-          <StyledInstaImg alt="logo" src="instagram_logo.png" />
+          <StyledInstaImg alt="logo" src="images/instagram_logo.png" />
           <StyledID
             type="text"
             placeholder="전화번호, 사용자 이름 또는 이메일"
@@ -87,7 +85,7 @@ const Login = () => {
             <StyledLine></StyledLine>
           </StyledLineBox>
           <StyledFacebook>
-            <StyledFacebookLogo alt="logo" src="facebook_logo.png" />
+            <StyledFacebookLogo alt="logo" src="images/facebook_logo.png" />
             Facebook으로 로그인
           </StyledFacebook>
           <StyledPWText>비밀번호를 잊으셨나요?</StyledPWText>
@@ -102,8 +100,8 @@ const Login = () => {
       <StyledApp>
         <StyledDownText>앱을 다운로드하세요.</StyledDownText>
         <StyledAppLogo>
-          <StyledDownImg alt="logo" src="appstore_logo.png" />
-          <StyledDownImg alt="logo" src="android_logo.png" />
+          <StyledDownImg alt="logo" src="images/appstore_logo.png" />
+          <StyledDownImg alt="logo" src="images/android_logo.png" />
         </StyledAppLogo>
       </StyledApp>
     </StyledLogin>
@@ -116,7 +114,7 @@ const StyledLogin = styled.section`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: #fafafa;
+  background-color: ${GLOBAL_COLOR.BACKGROUND};
   align-items: center;
 `;
 
@@ -128,8 +126,8 @@ const StyledInput = styled.div`
 
 const StyledLoginBox = styled.div`
   width: 350px;
-  background-color: #ffffff;
-  border: 1px solid #dbdbdb;
+  background-color: ${GLOBAL_COLOR.WHITE};
+  border: 1px solid ${GLOBAL_COLOR.GRAY_2};
 `;
 
 const StyledInstaImg = styled.img`
@@ -140,22 +138,26 @@ const StyledInstaImg = styled.img`
 const StyledID = styled.input`
   width: 100%;
   height: 36px;
-  border: 1px solid ${(props) => (props.isValid ? '#dbdbdb' : 'red')};
+  border: 1px solid
+    ${(props) =>
+      props.isValid ? `${GLOBAL_COLOR.GRAY_2}` : `${GLOBAL_COLOR.RED_1}`};
   border-radius: 2px;
   padding: 0 5px;
-  background-color: #fafafa;
-  color: #8f8f8f;
+  background-color: ${GLOBAL_COLOR.BACKGROUND};
+  color: ${GLOBAL_COLOR.GRAY_1};
   margin-bottom: 8px;
 `;
 
 const StyledPW = styled.input`
   width: 100%;
   height: 36px;
-  border: 1px solid ${(props) => (props.isValid ? '#dbdbdb' : 'red')};
+  border: 1px solid
+    ${(props) =>
+      props.isValid ? `${GLOBAL_COLOR.GRAY_2}` : `${GLOBAL_COLOR.RED_1}`};
   border-radius: 2px;
   padding: 0 5px;
-  background-color: #fafafa;
-  color: #8f8f8f;
+  background-color: ${GLOBAL_COLOR.BACKGROUND};
+  color: ${GLOBAL_COLOR.GRAY_1};
 `;
 
 const StyledButton = styled.button`
@@ -164,8 +166,9 @@ const StyledButton = styled.button`
   width: 100%;
   height: 36px;
   margin: 15px 0;
-  background-color: ${(props) => (props.disabled ? '#b2dffc' : '#0195f7')};
-  color: #faffff;
+  background-color: ${(props) =>
+    props.disabled ? `${GLOBAL_COLOR.BLUE_1}` : `${GLOBAL_COLOR.BLUE_2}`};
+  color: ${GLOBAL_COLOR.BACKGROUND};
   border-radius: 3px;
   font-size: 16px;
   align-items: center;
@@ -181,18 +184,18 @@ const StyledLineBox = styled.div`
 const StyledLine = styled.span`
   width: 105px;
   height: 1px;
-  background-color: #dbdbdb;
+  background-color: ${GLOBAL_COLOR.GRAY_2};
 `;
 
 const StyledOrText = styled.span`
   margin: 0 20px;
-  color: #8e8e8e;
+  color: ${GLOBAL_COLOR.GRAY_1};
 `;
 
 const StyledFacebook = styled.div`
   display: flex;
   margin: 20px auto;
-  color: #375183;
+  color: ${GLOBAL_COLOR.NAVY_2};
   align-items: center;
 `;
 
@@ -204,7 +207,7 @@ const StyledFacebookLogo = styled.img`
 const StyledPWText = styled.div`
   margin: 0 auto;
   margin-bottom: 15px;
-  color: #063b6c;
+  color: ${GLOBAL_COLOR.NAVY_1};
   font-size: 14px;
 `;
 
@@ -212,14 +215,14 @@ const StyledSignUp = styled.div`
   display: flex;
   justify-content: center;
   width: 350px;
-  background-color: #ffffff;
+  background-color: ${GLOBAL_COLOR.WHITE};
   margin-top: 10px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid ${GLOBAL_COLOR.GRAY_2};
   padding: 20px 0;
 `;
 
 const StyledAlink = styled.a`
-  color: #218fd6;
+  color: ${GLOBAL_COLOR.BLUE_3};
   text-decoration: none;
 `;
 

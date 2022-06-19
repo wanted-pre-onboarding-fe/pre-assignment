@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { getFeedsData } from '../../api/api';
 import GNB from '../../components/common/GNB';
 import Feed from '../../components/main/Feed';
 
@@ -6,11 +7,7 @@ const Main = () => {
   const [feedList, setFeedList] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/feedData.json')
-      .then((res) => res.json())
-      .then((res) => {
-        setFeedList(res);
-      });
+    getFeedsData().then((res) => setFeedList(res));
   }, []);
 
   return (

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { BsThreeDots } from 'react-icons/bs';
 import Comment from './Comment';
+import { GLOBAL_COLOR } from '../../styles/constants';
 
 const Feed = ({ value }) => {
   const { img, userId, comments } = value;
@@ -27,8 +28,8 @@ const Feed = ({ value }) => {
         ...commentList,
         {
           id: Math.random() * 100,
-          comment: newComment,
           userId: 'test_user',
+          comment: newComment,
         },
       ]);
       setNewComment('');
@@ -68,11 +69,13 @@ const Feed = ({ value }) => {
               <StyledLike>좋아요</StyledLike>
               <StyledLikeCount>0개</StyledLikeCount>
             </StyledLikeArticle>
-            {commentList.map((v, i) => (
-              <Comment key={i} commentInfo={v} />
-            ))}
-            <StyledAddComment>
-              <StyledInput>
+            <StyledCommentWrapper>
+              {commentList.map((v, i) => (
+                <Comment key={i} commentInfo={v} />
+              ))}
+            </StyledCommentWrapper>
+            <StyledAddCommentWrapper>
+              <StyledAddComment>
                 <i className="fa-regular fa-face-smile"></i>
                 <StyledCommentInput
                   value={newComment}
@@ -80,9 +83,9 @@ const Feed = ({ value }) => {
                   onChange={handleNewComment}
                   onKeyUp={handleEnter}
                 />
-              </StyledInput>
-              <StyledButton onClick={addComment}>게시</StyledButton>
-            </StyledAddComment>
+                <StyledButton onClick={addComment}>게시</StyledButton>
+              </StyledAddComment>
+            </StyledAddCommentWrapper>
           </StyledArticle>
         </StyledFeeds>
       )}
@@ -92,23 +95,23 @@ const Feed = ({ value }) => {
 
 const StyledFeeds = styled.section`
   width: 100vw;
-  padding: 20px;
-  background-color: #fafafa;
+  padding: 10px 0;
+  background-color: ${GLOBAL_COLOR.BACKGROUND};
 `;
 
 const StyledArticle = styled.div`
   max-width: 472px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid ${GLOBAL_COLOR.GRAY_2};
   border-radius: 5px;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: ${GLOBAL_COLOR.WHITE};
 `;
 
 const StyldeBtween = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: 10px;
+  margin: 10px;
 `;
 
 const StyledUserId = styled.div`
@@ -118,9 +121,9 @@ const StyledUserId = styled.div`
 
 const StyledUserImg = styled.img`
   width: 30px;
-  border: 1px solid #dbdbdb;
+  border: 1px solid ${GLOBAL_COLOR.GRAY_2};
   border-radius: 50px;
-  margin: 10px;
+  margin-right: 10px;
 `;
 
 const StyledArticleId = styled.div`
@@ -134,30 +137,26 @@ const StyledFeedImg = styled.img`
 const StyledIconArticle = styled.div`
   display: flex;
   justify-content: space-between;
+  margin: 10px;
 `;
 
 const StyledIcons = styled.div`
   display: flex;
-  margin: 0 3px;
-  :hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `;
 
 const StyledIcon = styled.i`
+  margin-right: 7px;
   font-size: 20px;
-  margin: 7px;
 `;
 
 const StyledBookmark = styled.div`
-  :hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `;
 
 const StyledLikeArticle = styled.div`
   display: flex;
-  margin: 10px 0 10px 10px;
+  margin: 10px;
 `;
 
 const StyledLike = styled.div`
@@ -169,37 +168,37 @@ const StyledLikeCount = styled.div`
   font-weight: bold;
 `;
 
-const StyledAddComment = styled.div`
-  display: flex;
-  justify-content: space-between;
-  height: 40px;
-  margin-top: 20px;
-  border-top: 1px solid #dbdbdb;
-  align-items: center;
+const StyledCommentWrapper = styled.div`
+  margin: 5px 10px 0 10px;
 `;
 
-const StyledInput = styled.div`
+const StyledAddCommentWrapper = styled.div`
+  margin-top: 20px;
+  border-top: 1px solid ${GLOBAL_COLOR.GRAY_2};
+`;
+
+const StyledAddComment = styled.div`
   display: flex;
-  margin-left: 10px;
-  font-size: 20px;
+  margin: 10px 10px;
   align-items: center;
+  i {
+    font-size: 20px;
+  }
 `;
 
 const StyledCommentInput = styled.input`
-  margin-left: 7px;
+  flex: 1;
+  margin-left: 5px;
 `;
 
 const StyledButton = styled.button`
-  margin-right: 7px;
   color: #2d90d1;
   font-size: 16px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   background-color: transparent;
-  :hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `;
 
 export default Feed;

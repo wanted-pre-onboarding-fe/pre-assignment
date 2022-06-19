@@ -12,7 +12,8 @@ const Comment = ({ commentInfo }) => {
 
 const StyledCommentSection = styled.div`
   display: flex;
-  margin: 20px 0 0 10px;
+  margin: 5px 0;
+  align-items: center;
 `;
 
 const StyledCommentId = styled.div`
@@ -20,7 +21,12 @@ const StyledCommentId = styled.div`
 `;
 
 const StyledComment = styled.div`
+  flex: 1;
   margin-left: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre;
+  font-size: 14px;
 `;
 
 export default Comment;
