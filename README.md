@@ -56,9 +56,7 @@
 
 # 구현사항 시연
 
-## Assignment1 - `Login`
-
-## Assignment4 - `Routing`
+## Assignment1,4 - `Login`,`Routing`
 
 <details>
   <summary>로컬스토리지의 유저정보 유무에 따라 페이지 이동</summary>
