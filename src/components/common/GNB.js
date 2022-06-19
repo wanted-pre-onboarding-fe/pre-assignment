@@ -35,7 +35,7 @@ const StyledGNB = styled.header`
   justify-content: center;
   width: 100vw;
   height: 60px;
-  border: 1px solid ${GLOBAL_COLOR.BORDER};
+  border-bottom: 1px solid ${GLOBAL_COLOR.BORDER};
   background-color: ${GLOBAL_COLOR.WHITE};
   align-items: center;
 `;

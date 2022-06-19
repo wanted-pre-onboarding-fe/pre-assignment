@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { BsThreeDots } from 'react-icons/bs';
 import Comment from './Comment';
-import { GLOBAL_COLOR } from '../../styles/constants';
+import { GLOBAL_COLOR, GLOBAL_WIDTH } from '../../styles/constants';
 
 const Feed = ({ value }) => {
   const { img, userId, comments } = value;
@@ -97,6 +97,9 @@ const StyledFeeds = styled.section`
   width: 100vw;
   padding: 10px 0;
   background-color: ${GLOBAL_COLOR.BACKGROUND};
+  @media screen and (max-width: ${GLOBAL_WIDTH.MOBILE_WIDTH}) {
+    font-size: 12px;
+  } ;
 `;
 
 const StyledArticle = styled.div`
@@ -199,6 +202,9 @@ const StyledButton = styled.button`
   appearance: none;
   background-color: transparent;
   cursor: pointer;
+  @media screen and (max-width: ${GLOBAL_WIDTH.MOBILE_WIDTH}) {
+    flex: 0.2;
+  } ;
 `;
 
 export default Feed;

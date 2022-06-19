@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { GLOBAL_WIDTH } from '../../styles/constants';
 
 const Comment = ({ commentInfo }) => {
   return (
@@ -27,6 +28,9 @@ const StyledComment = styled.div`
   overflow: hidden;
   white-space: pre;
   font-size: 14px;
+  @media screen and (max-width: ${GLOBAL_WIDTH.MOBILE_WIDTH}) {
+    font-size: 12px;
+  } ;
 `;
 
 export default Comment;
