@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Login from './pages/login/Login';
 import Main from './pages/main/Main';
 
-function App() {
+const App = () => {
   const isAuthorized = localStorage.getItem('userInfo');
 
   return (
@@ -30,6 +30,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

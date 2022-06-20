@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { getUserData } from '../../api/api';
 import { GLOBAL_COLOR } from '../../styles/constants';
@@ -49,8 +49,6 @@ const Login = () => {
           <StyledID
             type="text"
             placeholder="전화번호, 사용자 이름 또는 이메일"
-            // value={userId}
-            // onChange={handleUserId}
             isValid={isValidUserId}
             ref={userIdRef}
             onKeyUp={() => {
@@ -60,8 +58,6 @@ const Login = () => {
           <StyledPW
             type="password"
             placeholder="비밀번호"
-            // value={password}
-            // onChange={handlePassword}
             isValid={isValidPassword}
             ref={passwordRef}
             onKeyUp={() => {

@@ -77,7 +77,7 @@
 
 - 라우팅 로직을 통해 로컬스토리지에 유저정보가 저장이 되면서 메인페이지로 이동
 - `userdata`에서 정보를 확인 한 후 확인이 되면 Local Storage에 정보가 저장 되며 main 페이지로 이동함.
-- react-router-dom v6로 버전업 되면서 redirect가 navigate로 변경 됨.
+- react-router-dom v6로 버전업 되면서 redirect이 navigate로 변경 됨.
 </details>
 
 <details>
@@ -120,7 +120,7 @@
 - 모바일 반응형 미디어쿼리 사용하여 input사라짐.
 - space btween 으로 정렬함.
 
-- </details>
+</details>
 
 ## Assignment3 - `Validation`
 
@@ -191,3 +191,33 @@ email =
 
 - 피드 전체적으로 반응형으로 퍼블리싱 되어있어 폰트사이즈만 모바일 사이즈에 맞게 대응함.
 </details>
+
+## 기억하고 싶은 코드 & 에러핸들링
+
+https://www.notion.so/beb3bee6730a40b9a76b6845736c83aa
+
+## 에세이 링크
+
+https://velog.io/@dev_marco/%EC%9B%90%ED%8B%B0%EB%93%9C-%ED%94%84%EB%A6%AC%EC%98%A8%EB%B3%B4%EB%94%A9-%EC%BD%94%EC%8A%A4%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EC%97%90%EC%84%B8%EC%9D%B4
+
+## 로그인 데이터 정보
+
+```
+[
+  {
+    "id": 1,
+    "email": "test1@gmail.com",
+    "password": "Aa1234567!"
+  },
+  {
+    "id": 2,
+    "email": "test2@gmail.com",
+    "password": "Aa1234567!"
+  },
+  {
+    "id": 3,
+    "email": "test3@gmail.com",
+    "password": "Aa1234567!"
+  }
+]
+```
