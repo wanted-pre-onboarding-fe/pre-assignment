@@ -17,8 +17,9 @@
     "max-len": [2, 120, {
       "ignoreStrings": true,
       "ignoreComments": true
-    }    
+    },
   ],
-  "react/prop-types":0
+  "react/prop-types":0,
+  "react/react-in-jsx-scope": "off"
 }
 }
