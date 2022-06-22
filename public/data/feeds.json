@@ -1,0 +1,23 @@
+[
+  {
+    "thumbProfile": "red",
+    "nickname": "김수영",
+    "imageUrl": "https://source.unsplash.com/random/700x1080",
+    "likes": 5000,
+    "text": "달이 나만 따라오네 🚗 🌕"
+  },
+  {
+    "thumbProfile": "blue",
+    "nickname": "잔나비",
+    "imageUrl": "https://source.unsplash.com/random/900x500",
+    "likes": 4000,
+    "text": "뜨거운 여름밤은 가고 남은 건 볼품없지만 🏜️"
+  },
+  {
+    "thumbProfile": "green",
+    "nickname": "강백수",
+    "imageUrl": "https://source.unsplash.com/random/600x500",
+    "likes": 3000,
+    "text": "사랑에 벅차오르던 그 밤들 무색하게 내 곁에 아무도 없네 😮‍💨"
+  }
+]
