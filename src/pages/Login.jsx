@@ -106,6 +106,7 @@ const Login = () => {
             type="submit"
             onClick={handleLogin}
             validity={isActiveButton}
+            disabled={!isActiveButton}
           >
             로그인
           </LoginButton>
