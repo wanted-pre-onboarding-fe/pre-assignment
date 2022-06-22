@@ -8,10 +8,12 @@
     "text": "달이 나만 따라오네 🚗 🌕",
     "comments": [
       {
+        "id": 1,
         "nickname": "invisible_follower",
         "text": "뚜 뚜루루두"
       },
       {
+        "id": 2,
         "nickname": "invincible_follower",
         "text": "아무 생각없이 걷는다"
       }
