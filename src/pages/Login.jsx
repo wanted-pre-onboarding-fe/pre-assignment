@@ -72,8 +72,15 @@ const Login = () => {
     }
 
     storeUserData(userId, userPassword);
-    location.assign('/');
+    location.assign('/main');
   };
+
+  const isLoggedin =
+    localStorage.getItem('user-id') && localStorage.getItem('user-password');
+
+  if (isLoggedin) {
+    location.assign('/main');
+  }
 
   return (
     <Container>
