@@ -5,6 +5,14 @@ import Gnb from '../components/Gnb';
 import styled from 'styled-components';
 
 const Main = () => {
+  const isNotLoggedin = !(
+    localStorage.getItem('user-id') && localStorage.getItem('user-password')
+  );
+
+  if (isNotLoggedin) {
+    location.assign('/');
+  }
+
   return (
     <Container>
       <Gnb />
