@@ -3,9 +3,13 @@ import LoginButton from '../../components/login/LoginButton';
 
 import { useEffect, useRef } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import { saveItem } from '../../fixtures/storage';
 
 export default function LoginContainer({ username, password }) {
+  const navigate = useNavigate();
+
   const usernameRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -20,6 +24,8 @@ export default function LoginContainer({ username, password }) {
 
     saveItem('username', username);
     saveItem('password', password);
+
+    navigate('/');
   };
 
   return (
