@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "thumbProfile": "red",
+    "thumbProfile": "https://w.namu.la/s/9bcc061b47879e3f92944f1241de5c7dde3b7f72d4fb1abb5c1d6d442188ece0eacef620a70b3184fb8be18bed5b7dd08b0c6e39ea0fcd373034b313f1b68e4f9e2607633836988670ad03c505e46cea57a077c2b27a8516676e62379f4f4947",
     "nickname": "김수영",
     "imageUrl": "https://source.unsplash.com/random/700x1080",
     "likes": 5000,
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "thumbProfile": "blue",
+    "thumbProfile": "https://w.namu.la/s/2a11d86207e1f208132d93f0968795d3162274749c53771a31bcef5cb30949f7b3770fd74a38f7a8d32a40ac76fe1f191d85f4b505373a32bf548d4835245216751857e8d0c3454987153915b747e9bd939849de4af91745a65eac053955c4be",
     "nickname": "잔나비",
     "imageUrl": "https://source.unsplash.com/random/900x500",
     "likes": 4000,
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "thumbProfile": "green",
+    "thumbProfile": "https://w.namu.la/s/5e576f9da39d05cde6cfcd0767397a6f4ba4f0b89f89ca43791965781fa52c36e13c88ec7cdd95f7318e3ae48f01464bec74f4c28620d10c2aad16afa9cdbc155b293eb50436613e0027d928badb89094db4d0d987d719e22d2fd853cecc811c2d8a2bd11643bebd6fa002b5978a6cee",
     "nickname": "강백수",
     "imageUrl": "https://source.unsplash.com/random/600x500",
     "likes": 3000,
