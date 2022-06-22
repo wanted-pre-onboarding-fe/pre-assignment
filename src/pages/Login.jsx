@@ -6,6 +6,21 @@ const Login = () => {
   const [userPassword, setPassword] = useState(
     localStorage.getItem('user-password')
   );
+  const [emailValidity, setEmailValidity] = useState(true);
+  const [passwordValidity, setPasswordValidity] = useState(true);
+  const [isActiveButton, setIsActiveButton] = useState(false);
+
+  const validator = {
+    email: (email) => {
+      const regex = /[a-zA-Z0-9._+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9.]+/s;
+      return regex.test(email);
+    },
+    password: (password) => {
+      const regex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[`~!@#$%^&*()-_=+]).{8,}$/s;
+      return regex.test(password);
+    },
+  };
 
   const placeholder = {
     id: '전화번호, 사용자 이름 또는 이메일',
@@ -24,14 +39,26 @@ const Login = () => {
     const isPasswordField = id === 'user-password';
 
     if (isIdField) {
+      const isValid = validator.email(value);
+      setEmailValidity(isValid);
       setId(value);
-      return;
     }
 
     if (isPasswordField) {
+      const isValid = validator.password(value);
+      setPasswordValidity(isValid);
       setPassword(value);
+    }
+
+    const isValidUserInfo =
+      emailValidity && passwordValidity && userId !== '' && userPassword !== '';
+
+    if (isValidUserInfo) {
+      setIsActiveButton(true);
       return;
     }
+
+    setIsActiveButton(false);
   };
 
   const handleLogin = (event) => {
@@ -62,6 +89,7 @@ const Login = () => {
               placeholder={placeholder.id}
               onChange={handleChange}
               value={userId}
+              validity={emailValidity}
             />
           </Label>
           <Label>
@@ -71,9 +99,15 @@ const Login = () => {
               placeholder={placeholder.password}
               onChange={handleChange}
               value={userPassword}
+              validity={passwordValidity}
             />
           </Label>
-          <LoginButton type="submit" onClick={handleLogin}>
+          <LoginButton
+            type="submit"
+            onClick={handleLogin}
+            validity={isActiveButton}
+            disabled={!isActiveButton}
+          >
             로그인
           </LoginButton>
         </Form>
@@ -108,26 +142,35 @@ const Form = styled.form`
   gap: 0.5rem;
 `;
 const Label = styled.label``;
-const IdField = styled.input`
-  width: 268px;
-  height: 40px;
-  border: 1px solid #000;
-  border-radius: 4px;
-  padding: 8px;
-`;
-const PasswordField = styled.input`
-  width: 268px;
-  height: 40px;
-  border: 1px solid #000;
-  border-radius: 4px;
-  padding: 8px;
-`;
-const LoginButton = styled.button`
-  width: 268px;
-  height: 30px;
-  border-radius: 4px;
-  padding: 8px;
-  font-weight: 700;
-  background-color: #0095f6;
-  color: #fff;
-`;
+const IdField = styled.input(
+  ({ validity }) => `
+width: 268px;
+height: 40px;
+border: 1px solid;
+border-color: ${validity ? '#000' : 'red'};
+border-radius: 4px;
+padding: 8px;
+`
+);
+const PasswordField = styled.input(
+  ({ validity }) => `
+width: 268px;
+height: 40px;
+border: 1px solid;
+border-color: ${validity ? '#000' : 'red'};
+border-radius: 4px;
+padding: 8px;
+`
+);
+const LoginButton = styled.button(
+  ({ validity }) => `
+width: 268px;
+height: 30px;
+border-radius: 4px;
+padding: 8px;
+font-weight: 700;
+background-color: #0095f6;
+opacity: ${validity ? '1' : '0.4'};
+color: #fff;
+`
+);
