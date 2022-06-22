@@ -5,7 +5,17 @@
     "nickname": "itsuyoung",
     "imageUrl": "https://source.unsplash.com/random/700x1080",
     "likes": 5000,
-    "text": "달이 나만 따라오네 🚗 🌕"
+    "text": "달이 나만 따라오네 🚗 🌕",
+    "comments": [
+      {
+        "nickname": "invisible_follower",
+        "text": "뚜 뚜루루두"
+      },
+      {
+        "nickname": "invincible_follower",
+        "text": "아무 생각없이 걷는다"
+      }
+    ]
   },
   {
     "id": 2,
@@ -13,7 +23,8 @@
     "nickname": "bandjannabi",
     "imageUrl": "https://source.unsplash.com/random/900x500",
     "likes": 4000,
-    "text": "뜨거운 여름밤은 가고 남은 건 볼품없지만 🏜️"
+    "text": "뜨거운 여름밤은 가고 남은 건 볼품없지만 🏜️",
+    "comments": []
   },
   {
     "id": 3,
@@ -21,6 +32,7 @@
     "nickname": "baeksoo_kang",
     "imageUrl": "https://source.unsplash.com/random/600x500",
     "likes": 3000,
-    "text": "사랑에 벅차오르던 그 밤들 무색하게 내 곁에 아무도 없네 😮‍💨"
+    "text": "사랑에 벅차오르던 그 밤들 무색하게 내 곁에 아무도 없네 😮‍💨",
+    "comments": []
   }
 ]
