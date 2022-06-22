@@ -1,12 +1,11 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { EmailValidation, PasswordValidation } from '../utils/validation';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
 const Login = () => {
-  const navigate = useNavigate();
   const idInputRef = useRef('');
   const passwordInputRef = useRef('');
   const [isValid, setIsValid] = useState({
@@ -67,7 +66,7 @@ const Login = () => {
               passwordInputRef.current === testId.password
             ) {
               window.localStorage.setItem('id', idInputRef.current);
-              navigate('/');
+              window.location.replace('/');
             }
           }}
         >

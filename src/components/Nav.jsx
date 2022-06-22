@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { FaHome, FaPlusSquare } from 'react-icons/fa';
 
 const Nav = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   if (location.pathname === '/login') return null;
-
   return (
     <Container>
       <main>
@@ -24,7 +22,7 @@ const Nav = () => {
             type="button"
             onClick={() => {
               window.localStorage.clear();
-              navigate('/login');
+              window.location.replace('/login');
             }}
           >
             로그아웃
