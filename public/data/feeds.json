@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "thumbProfile": "red",
     "nickname": "김수영",
     "imageUrl": "https://source.unsplash.com/random/700x1080",
@@ -7,6 +8,7 @@
     "text": "달이 나만 따라오네 🚗 🌕"
   },
   {
+    "id": 2,
     "thumbProfile": "blue",
     "nickname": "잔나비",
     "imageUrl": "https://source.unsplash.com/random/900x500",
@@ -14,6 +16,7 @@
     "text": "뜨거운 여름밤은 가고 남은 건 볼품없지만 🏜️"
   },
   {
+    "id": 3,
     "thumbProfile": "green",
     "nickname": "강백수",
     "imageUrl": "https://source.unsplash.com/random/600x500",
