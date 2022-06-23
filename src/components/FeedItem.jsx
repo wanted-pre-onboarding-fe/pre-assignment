@@ -63,7 +63,8 @@ const FeedItem = ({
       <FeedBody
         imageUrl={imageUrl}
         likes={likes}
-        test={text}
+        nickname={nickname}
+        text={text}
         comments={commentList}
         commentInput={commentInput}
         onChange={handleChange}
