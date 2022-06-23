@@ -13,12 +13,14 @@ import Comment from './Comment';
 import { useState } from 'react';
 import { useRef } from 'react';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 const Feeds = ({ feed }) => {
   const { nickName, image, comments } = feed;
   const [commentList, setCommentList] = useState(comments);
   const inputRef = useRef('');
   const myId = window.localStorage.getItem('id');
+  const [loading, setLoading] = useState(true);
 
   function OnClick() {
     setCommentList([
@@ -34,8 +36,9 @@ const Feeds = ({ feed }) => {
       return OnClick();
     }
   }
+
   return (
-    <Container>
+    <Container isLoaded={loading}>
       <div className="feeds_header">
         <div className="profile">
           <FaCircle size={35} />
@@ -45,7 +48,7 @@ const Feeds = ({ feed }) => {
       </div>
 
       <div className="feeds_picture">
-        <img src={image} />
+        <img src={image} onLoad={() => setLoading(false)} />
       </div>
 
       <div className="feeds_widget">
@@ -79,7 +82,7 @@ const Feeds = ({ feed }) => {
 export default Feeds;
 
 const Container = styled.div`
-  display: flex;
+  display: ${(props) => (props.isLoaded ? 'none' : 'flex')};
   flex-direction: column;
   border: 0.1px solid lightgrey;
   border-radius: 5px;
