@@ -10,20 +10,42 @@ import {
 } from 'react-icons/fa';
 import { BsThreeDots } from 'react-icons/bs';
 import Comment from './Comment';
+import { useState } from 'react';
+import { useRef } from 'react';
+import axios from 'axios';
 
-const Feeds = ({ img }) => {
+const Feeds = ({ feed }) => {
+  const { nickName, image, comments } = feed;
+  const [commentList, setCommentList] = useState(comments);
+  const inputRef = useRef('');
+  const myId = window.localStorage.getItem('id');
+
+  function OnClick() {
+    setCommentList([
+      ...commentList,
+      { nickName: myId, content: inputRef.currnet },
+    ]);
+    inputRef.current.value = '';
+    inputRef.current.focus();
+  }
+
+  function OnKeyPress(e) {
+    if (e.key === 'Enter') {
+      return OnClick();
+    }
+  }
   return (
     <Container>
       <div className="feeds_header">
         <div className="profile">
           <FaCircle size={35} />
-          <div>nick name</div>
+          <div>{nickName}</div>
         </div>
         <BsThreeDots size={15} />
       </div>
 
       <div className="feeds_picture">
-        <img src={img} />
+        <img src={image} />
       </div>
 
       <div className="feeds_widget">
@@ -37,13 +59,18 @@ const Feeds = ({ img }) => {
 
       <div className="feeds_like">좋아요 0 개 </div>
 
-      <Comment />
-      <Comment />
+      {commentList?.map((comment, key) => {
+        return <Comment comment={comment} key={key} />;
+      })}
 
       <div className="feeds_post-comment">
         <FaRegSmile size={20} className="feeds_post-comment_icon" />
-        <input />
-        <button>게시</button>
+        <input
+          ref={inputRef}
+          onChange={(e) => (inputRef.currnet = e.target.value)}
+          onKeyPress={(e) => OnKeyPress(e)}
+        />
+        <button onClick={OnClick}>게시</button>
       </div>
     </Container>
   );

@@ -5,16 +5,34 @@ import { Link, Route } from 'react-router-dom';
 import Login from './Login';
 import { Navigate } from 'react-router-dom';
 import Feed from '../components/Feed';
+import axios from 'axios';
+import { useEffect } from 'react';
+
 const Home = () => {
   const isLogin = window.localStorage.getItem('id');
   if (!isLogin) return <Navigate to="/login" />;
 
+  const [feeds, setFeeds] = useState(null);
+
+  useEffect(() => {
+    async function getFeeds() {
+      const res = await axios.get('/mockFeeds.json');
+      setFeeds(res.data);
+    }
+    getFeeds();
+  }, []);
+
+  useEffect(() => {
+    if (feeds) {
+      console.log(feeds);
+    }
+  }, [feeds]);
   return (
     <Container>
       <main>
-        <Feed img={'https://source.unsplash.com/random/600x500'} />
-        <Feed img={'https://source.unsplash.com/random/900x500'} />
-        <Feed img={'https://source.unsplash.com/random/700x1080'} />
+        {feeds?.map((feed, key) => {
+          return <Feed feed={feed} key={key} />;
+        })}
       </main>
     </Container>
   );

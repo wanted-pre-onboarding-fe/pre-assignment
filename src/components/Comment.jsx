@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Comment = () => {
+const Comment = ({ comment }) => {
+  const { nickName, content } = comment;
   return (
     <Container>
-      <div>nick name</div>
-      <div>안녕하세요 nick name 입니다</div>
+      <div>{nickName}</div>
+      <div>{content}</div>
     </Container>
   );
 };
