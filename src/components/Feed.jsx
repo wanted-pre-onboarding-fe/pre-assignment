@@ -12,8 +12,6 @@ import { BsThreeDots } from 'react-icons/bs';
 import Comment from './Comment';
 import { useState } from 'react';
 import { useRef } from 'react';
-import axios from 'axios';
-import { useEffect } from 'react';
 
 const Feeds = ({ feed }) => {
   const { nickName, image, comments } = feed;
