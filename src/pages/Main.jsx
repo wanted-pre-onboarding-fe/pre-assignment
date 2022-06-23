@@ -37,14 +37,14 @@ const Container = styled.div`
   }
   @media (max-width: 375px) {
   }
-  @media (max-width: 425px;) {
+  @media (max-width: 425px) {
   }
-  @media (max-width: 768px;) {
+  @media (max-width: 768px) {
   }
-  @media (max-width: 1024px;) {
+  @media (max-width: 1024px) {
   }
-  @media (max-width: 1440px;) {
+  @media (max-width: 1440px) {
   }
-  @media (max-width: 2560px;) {
+  @media (max-width: 2560px) {
   }
 `;
