@@ -35,7 +35,13 @@ const Gnb = () => {
           <FontAwesomeIcon icon={faPaperPlane} size="lg" />
           <FontAwesomeIcon icon={faPlusSquare} size="lg" />
           <FontAwesomeIcon icon={faCompass} size="lg" />
-          <FontAwesomeIcon icon={faSignOut} size="lg" onClick={handleLogout} />
+          <LogoutIcon>
+            <FontAwesomeIcon
+              icon={faSignOut}
+              size="lg"
+              onClick={handleLogout}
+            />
+          </LogoutIcon>
         </MenuSection>
       </Inner>
     </Container>
@@ -88,4 +94,7 @@ const SearchField = styled.input`
 const MenuSection = styled.section`
   display: flex;
   gap: 1rem;
+`;
+const LogoutIcon = styled.span`
+  cursor: pointer;
 `;
