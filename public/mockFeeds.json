@@ -1,0 +1,35 @@
+[
+  {
+    "nickName": "bclef25",
+    "image": "https://source.unsplash.com/random/600x500",
+    "comments": [
+      { "nickName": "bclef25", "content": "안녕하세요 " },
+      {
+        "nickName": "wanted1",
+        "content": "안녕하세요 조인호입니다. 만나서 반갑습니다 "
+      }
+    ]
+  },
+  {
+    "nickName": "ecldf52",
+    "image": "https://source.unsplash.com/random/900x500",
+    "comments": [
+      { "nickName": "prontend-junior", "content": " 프론트엔드 화이팅 " },
+      {
+        "nickName": "bclef25",
+        "content": "화이팅!!"
+      }
+    ]
+  },
+  {
+    "nickName": "park0715",
+    "image": "https://source.unsplash.com/random/700x1080",
+    "comments": [
+      { "nickName": "park0715", "content": " 과제 제출합니다 " },
+      {
+        "nickName": "wanted",
+        "content": "Good!"
+      }
+    ]
+  }
+]
