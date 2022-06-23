@@ -41,6 +41,7 @@ const Container = styled.div`
   top: 0;
   height: 70px;
   border: 0.1px solid grey;
+  background-color: white;
   main {
     display: flex;
     width: 100%;
