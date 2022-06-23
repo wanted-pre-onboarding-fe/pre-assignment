@@ -19,7 +19,7 @@ const Feeds = ({ feed }) => {
   const { nickName, image, comments } = feed;
   const [commentList, setCommentList] = useState(comments);
   const inputRef = useRef('');
-  const myId = window.localStorage.getItem('id');
+  const myId = window.localStorage.getItem('id').split('@')[0].toString();
   const [loading, setLoading] = useState(true);
 
   function OnClick() {
