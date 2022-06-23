@@ -6,7 +6,6 @@ import FeedBody from './FeedBody';
 import styled from 'styled-components';
 
 const FeedItem = ({
-  id,
   thumbProfile,
   nickname,
   imageUrl,
@@ -62,7 +61,6 @@ const FeedItem = ({
     <Container>
       <FeedHeader thumbProfile={thumbProfile} nickname={nickname} />
       <FeedBody
-        id={id}
         imageUrl={imageUrl}
         likes={likes}
         test={text}

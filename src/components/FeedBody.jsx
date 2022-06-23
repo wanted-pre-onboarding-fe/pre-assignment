@@ -8,7 +8,6 @@ import ReactionSection from './ReactionSection';
 import styled from 'styled-components';
 
 const FeedBody = ({
-  id,
   imageUrl,
   likes,
   nickname,
@@ -28,7 +27,6 @@ const FeedBody = ({
       <TextSection nickname={nickname} text={text} />
       <CommentsSection comments={comments} />
       <ReactionSection
-        id={id}
         commentInput={commentInput}
         onChange={onChange}
         onKeyDown={onKeyDown}

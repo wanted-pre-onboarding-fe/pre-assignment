@@ -6,21 +6,7 @@ import { faSmile } from '@fortawesome/free-regular-svg-icons';
 
 import styled from 'styled-components';
 
-const ReactionSection = ({
-  id,
-  commentInput,
-  onChange,
-  onKeyDown,
-  onClick,
-}) => {
-  const handleKeyup = (event) => {
-    // const { key } = event;
-    // const isEnterUp = key === 'Enter';
-    // if (isEnterUp) {
-    //   setComment('');
-    // }
-  };
-
+const ReactionSection = ({ commentInput, onChange, onKeyDown, onClick }) => {
   return (
     <Container>
       <FontAwesomeIcon icon={faSmile} size="lg" />

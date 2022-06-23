@@ -39,7 +39,6 @@ const Feeds = () => {
               return (
                 <FeedItem
                   key={id}
-                  id={id}
                   thumbProfile={thumbProfile}
                   nickname={nickname}
                   imageUrl={imageUrl}
