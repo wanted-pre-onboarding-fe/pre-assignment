@@ -1,93 +1,82 @@
-# :: 원티드 프리온보딩 프론트엔드 코스 사전과제
+# 원티드 프리온보딩 프론트엔드 코스 사전과제
 
-## Quick Overview
+안녕하세요 요번에 지원하게된 박지훈입니다 
+사실저는 작년에 부트캠프를 수료한 경험이 있고 현재 두번째 직장에서 일하고있는 주니어개발자입니다 
+직장을 다니면서 많은 고충이 있어 현재 제 개발자로서의 길을 되돌아보고 있는데 
+사수없이 일하면서 혼자 개발해온 저로선 트렌드에 맞는 최신기술에 쫓다보니 근본적으로 기본기가 부족하다고 느꼈고 
+협업하기에 좋은 클린코드에 있어 많이 부족한점을 스스로 알고있습니다 
+그래서 기본기 다시 되돌아보고싶은 와중에 현재 직장에서 개발자들과 같이 가기 어렵다는 회사사정을 들어 이직 준비를 해야될 시점이 왔습니다
+예전부터 원티드 내 기업들은 정말 개발자들이 모여있는 개발자들의 회사의 채용공고가 많이 올라온다는 인식이 저에겐 있었고 평소 원티드 아티클도 많이 봐왔던지라 
+요번에 좋은 기회가 생겨 프리온보딩 코스에 지원하게되었습니다
+꼭 이 코스에 합격하지 않아도 저에겐 이 과제를 하면서 저를 돌아볼수 좋은 계기가 되었고 과제를 하면서 제가 놓친부분들도 많이 얻은것같습니다
 
-```
-npm install
 
-npm start
-```
+# 과제풀이
 
-\*\* React를 구동할 수 있는 기본적인 환경이 필요합니다.
+## `Login`
 
-## 진행 가이드
+로그인부분은 과제 요구사항인 랜더링 최적화를 고려하여 
+useRef를 사용해 input value가 변할때마다 랜더링이 되지않게 했습니다
 
-- 위의 Repository를 포크(`fork`) 하여 개발 URL 제출해주세요.
-  - [URL 제출 링크](https://forms.gle/LcXnfrgtQp5MRrdU8)
-- fork 레파지토리 명은 `wanted-pre-onboarding-fe`로 생성해 주세요.
-- 과제 수행 개수에 따라 기본적인 평가가 이루어집니다.
-- 코드의 일관성, 가독성, 함수 분리,컴포넌트 설계, 코드 퀄리티 등을 기준으로 세부적인 평가가 이루어집니다.
-- 해당 과제에 대한 해설은 개강 후 진행될 예정입니다.
-- 선발하는 과정에서 최소한의 수준을 평가하기 위한 과제로 아래 Assignment 외 다른 부분을 완벽하게 구현하지 않으셔도 됩니다. (평가에 반영하지 않습니다.)
-- README.md를 꼭 작성해 주세요. 본인에 대한 소개나 과제 풀이에 관한 것 등 자유롭게 작성해주시면 됩니다.
-- 함수형 컴포넌트로 개발해주세요. (React Hooks)
 
-\*문의 사항은 사전 과제 Repository의 Issue로 등록해 주세요.
+## `GNB`
 
-# :: 과제 안내
+global navigation bar 같은경우 login페이지에선 나오지않도록 location함수를 이용하여 
+url을 가져온뒤 login 페이지일경우엔 안나오게 구현하였으면 요구사항인 sticky를 이용하여 최상단에 고정시켰습니다 
+그리고 로그아웃시 react-router-dom 의 navigation 함수를 이용하여 로그아웃 login페이지로 로그인을 하게끔 유도하는 routing을 추가하였습니다
+반응형 같은경우엔 데스크탑 사이즈일경우 space-around 에서 모바일 사이즈일경우 space-between으로 정렬해줬습니다
 
----
-
-## Assignment 1 - `Login`
-
-- 로그인 컴포넌트를 개발합니다. (최소화 - `input` 2개, `button` 1개)
-- 약간의 랜더링 최적화를 고려해주세요. (Hint: Ref 사용)
-- 로그인 시(ID, PW 입력 후 버튼 클릭)
-  - Local Storage 에 로그인 정보 저장 (다시 접속했을 경우에 정보가 유지 되어야 합니다.)
-  - 메인 페이지로 이동합니다.(로그인이 완료되면)
-  - 반응형 CSS 적용은 하지 않으셔도 좋습니다. 해당 페이지는 반응형 CSS를 평가하지 않습니다.
-
-## Assignment2 - `GNB`
-
-- 로그인 후 이동하는 메인페이지의 GNB를 구현해주세요.
-- 구현 시 스크롤에 관계 없이 화면 상단에 고정되는 `sticky` GNB 를 구현해주세요.
-- 모바일 사이즈의 경우 가운데 Input 창이 사라져야 하고 양옆으로(space-between) 정렬 되어야 합니다.
-- 가장 오른쪽 아이콘을 Logout으로 변경해주세요.
-- 그 외 기능은 평가하지 않습니다.
-  - (가운데 검색바는 `input` 요소로만 만들어주세요. 기능은 X)
-  - (아이콘은 자유롭게 사용하셔도 괜찮습니다. 아이콘 라이브러리 설치 O)
 
 ## Assignment3 - `Validation`
 
-- 이메일과 비밀번호의 유효성을 확인합니다.
-  - 이메일 조건 - `@` , `.` 포함
-  - 비밀번호 조건 - 대문자, 숫자, 특수문자 포함 8자리 이상
-  - 로그인 시 이메일과 비밀번호가 등록되어 있는 것과 일치 여부 확인
-- Validation 상태를 CSS로 표현해주세요.
-  - Email Input
-    Validation Check를 통해 Email 형식이 아닌 경우 표시를해주세요. (ex. boder가 red색상으로 변경)
-  - Password Input
-    Validation Check를 통해 Password 형식이 아닌 경우 표시를 해주세요. (ex. boder가 red색상으로 변경.)
-  - Login Button
-    Validation Check가 모두 통과된 경우에만 Button 색상을 진하게 변경해주세요. (통과 되지 못한 경우와 구별이 가능해야 합니다.)
-- 유효성 검사 시 아래 두 가지를 적용해서 구현해주세요.
-  - 정규표현식 사용
-  - Validation 함수 분리
+사실 validation 라이브러리를 써왔지 정규표현식은 아직까지 익숙치 않아 여기에서 시간을 많이 할애 하였습니다 
+정규표현식 테스트 사이트인 regexr.com 에서 정규표현식 기초부터 배우면서 구현하였고 
+src/utils 폴더에 validation 함수를 모듈화하여 불러오는식으로 구현하였습니다 
+validation 통과 여부에 따라 input들의 border에 색상에 스타일링을 주는 방법은 
+``js 
+//통과여부에 따라 state변경
+function CheckValidation(e, result) {
+    // 유효성검사 - 아이디, 패스워드
+    if (result) {
+      const check = { ...isValid, [e.target.name]: result };
+      setIsValid(check);
+    } else {
+      setIsValid({ ...isValid, [e.target.name]: false });
+    }
+ }
+ 
+ //input 스타일링
+ const Input = styled.input`
+  border: ${(props) => (props.validation === false ? '1px' : '1.5px')} solid
+    ${(props) => (props.validation === false ? 'red' : '#cccccc')};
+  :focus {
+    border: ${(props) => (props.validation === false ? '1px' : '1.5px')} solid
+      ${(props) => (props.validation === false ? 'red' : '#cccccc')};
+  }
+ 
+ 
+``
+input props에 통과여부 state를 주어 가변성을 주었습니다
 
-## Assignment4 - `Routing`
+그리고 버튼 색상같은경우 useEffect로 아이디/패스워드 input 통과여부 state 변화에따라 
+두 input모두 통과했을시를 기준으로 input과 마찬가지로 props에 state를 이용하여 가변성을 주었습니다
 
-- 로그인,로그아웃 시 라우팅 로직을 통해 페이지가 이동 되도록 구현해주세요. (Local Storage)
-- 로그인이 완료되면 라우터에서 Main Page로 이동되어야 합니다. (history push 사용 X)
-- 로그아웃되면 (Local Storage가 삭제되면) Login Page로 이동되어야 합니다.(history push 사용 X)
+
+
+## `Routing`
+
+react-router-dom v6 로 오면서 useHistory 가 useNavigation 으로 바뀐걸로 알고있습니다
+하지만 요구사항에 history.push를 사용하지말기 라는 조건이 있어 v6로 넘오면서 대체된 useNavigate 사용 여부에 혼동이 있어 이부분에 고민이 많았는데 
+로그이여부에 따라 redirect 해주는방법은 Navigate 컴포넌트를 이용하였고 
+로그인 버튼을 누를시 메인페이지로 가는 방법은 location함수를 이용하여 구현하였습니다
+
 
 ## Assignment5 - `Feeds`
 
-- 피드 컴포넌트를 개발합니다.
-- 레이아웃을 인스타그램과 동일하게 구현해주시면 됩니다. (픽셀 단위까지 맞추실 필요는 없으나 보기에 자연스럽도록 개발해주세요.)
-- 각 Feed의 정보는 public/data 디렉토리에 json형식으로 구성하여 fetch, axios 등을 이용하여 data를 요청해야 합니다.
-- Feed는 최소 3개이상 랜더링 되도록 구현해주세요.
-- 각각의 Feed에 댓글을 추가할 수 있도록 개발해주세요. (Enter key & 클릭으로 게시 가능하도록)
-- Feed는 화면 중앙에 위치 해야하며 모바일 대응이 가능해야 합니다.
-- 게시 후 Input은 초기화 되어야 합니다.
-- Feed의 이미지는 자유롭게 사용하시되 각각 사이즈가 각각 달라야 합니다. (ex. 정사각형, 세로가 긴 것, 가로가 긴 것 등)
-- Feed Image는 자유롭게 사용하셔도 되지만 필요하시면 아래의 url을 사용하세요.(사이즈를 변경하셔도 됩니다. 같은 사이즈 X)
-  "[https://source.unsplash.com/random/600x500](https://source.unsplash.com/random/600x500)"
-  "[https://source.unsplash.com/random/900x500](https://source.unsplash.com/random/900x500)"
-  "[https://source.unsplash.com/random/700x1080](https://source.unsplash.com/random/700x1080)"
-- Feeds의 Image가 로딩된 후 컴포넌트가 로딩 되도록 Loading을 구현해 주세요 (로딩바는 없어도 괜찮습니다. Hint: image.onload)
-  - (아이콘은 자유롭게 사용하셔도 괜찮습니다. icon 라이브러리 설치 O)
-  - 메인 Page 전체에 반응형 CSS가 적용 되어있는지 평가합니다. (Media Query 사용)
+피드 컴포넌트 같은경우엔 별다른 특이점없이 mockdata 활용하여 데이터를 뿌려주었고 
+다만 걱정했던 부분은 각 게시물에 댓글을 달경우였는데 mock data에도 post 요청으로 데이터를 넣어줄수있나? 라는 점이 궁금했습니다
+아무리 검색해봐도 그런 케이스는 나오질 않아서 결국 axios를 이용하여 데이터를 fetching 해와서 뿌려주고 
+mapping 해줘야되는 댓글 창들같은경우 state에 담아서 setState로 댓글을 추가해주는 식으로 구현했습니다
+이부분의 문제점은 페이지 refresh 할경우 state초기화로 새로 추가한 댓글창 데이터들은 휘발된다는 점인데 
+최소 과제 요구사항 구현에는 성공했다고 생각하지만 개인적으로 많이 아쉬운부분이었습니다 
 
-## 참고 이미지
-
-[참고 이미지 링크](https://bclef25.notion.site/1ed6d5b2192b45eeb4104a67f6a77250)
