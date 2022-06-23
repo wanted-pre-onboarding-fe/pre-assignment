@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Gnb from '../components/Gnb';
+import Feeds from '../components/Feeds';
 
 import styled from 'styled-components';
 
@@ -16,7 +17,7 @@ const Main = () => {
   return (
     <Container>
       <Gnb />
-      <DummyContent />
+      <Feeds />
     </Container>
   );
 };
@@ -25,13 +26,8 @@ export default Main;
 
 const Container = styled.div`
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-`;
-
-const DummyContent = styled.div`
-  height: 200vh;
-  background-color: lightblue;
 `;
