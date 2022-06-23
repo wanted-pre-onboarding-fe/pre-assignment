@@ -84,7 +84,7 @@ const Container = styled.div`
   flex-direction: column;
   border: 0.1px solid lightgrey;
   border-radius: 5px;
-  margin-bottom: 50px;
+  margin-top: 50px;
   > div,
   input {
     width: 100%;
