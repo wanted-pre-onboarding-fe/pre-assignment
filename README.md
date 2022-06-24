@@ -12,8 +12,7 @@ npm start
 
 ## 진행 가이드
 
-- 위의 Repository를 포크(`fork`) 하여 개발 URL 제출해주세요.
-  - [URL 제출 링크](https://forms.gle/LcXnfrgtQp5MRrdU8)
+- 위의 Repository를 포크(`fork`) 하여 개발하여 원티드 프리온보딩 프론트엔드 지원 페이지를 통해 제출해주세요.
 - fork 레파지토리 명은 `wanted-pre-onboarding-fe`로 생성해 주세요.
 - 과제 수행 개수에 따라 기본적인 평가가 이루어집니다.
 - 코드의 일관성, 가독성, 함수 분리,컴포넌트 설계, 코드 퀄리티 등을 기준으로 세부적인 평가가 이루어집니다.
