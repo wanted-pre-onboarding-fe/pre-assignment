@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "author": "wanted",
+    "img": "https://images.unsplash.com/photo-1655117070431-0ca113ca5106?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NjUxMzU2Mw&ixlib=rb-1.2.1&q=80&w=600",
+    "like": 3,
+    "comment": [
+      {
+        "id": 1235545,
+        "commentor": "test_comment",
+        "comment": "안녕하세요 테스트1입니다."
+      },
+      {
+        "id": 3443443,
+        "commentor": "test_comment",
+        "comment": "안녕하세요 테스트2입니다."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "author": "pre_onboarding",
+    "img": "https://images.unsplash.com/photo-1654009603731-20b6d7536002?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NjUxMzU3NA&ixlib=rb-1.2.1&q=80&w=900",
+    "like": 5,
+    "comment": [
+      {
+        "id": 3425162,
+        "commentor": "test_comment",
+        "comment": "안녕하세요 테스트3입니다."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "author": "wanted",
+    "img": "https://images.unsplash.com/photo-1655378523412-e0a00c084197?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NjUxMzU4NQ&ixlib=rb-1.2.1&q=80&w=700",
+    "like": 0,
+    "comment": []
+  },
+  {
+    "id": 4,
+    "author": "test_test",
+    "img": "https://images.unsplash.com/photo-1655378523412-e0a00c084197?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NjUxMzU4NQ&ixlib=rb-1.2.1&q=80&w=700",
+    "like": 1,
+    "comment": []
+  },
+  {
+    "id": 5,
+    "author": "test_test",
+    "img": "https://images.unsplash.com/photo-1654009603731-20b6d7536002?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NjUxMzU3NA&ixlib=rb-1.2.1&q=80&w=900",
+    "like": 2,
+    "comment": [
+      {
+        "id": 123435352,
+        "commentor": "test_comment",
+        "comment": "안녕하세요 테스트5입니다."
+      },
+      {
+        "id": 3425,
+        "commentor": "test_comment",
+        "comment": "안녕하세요 테스트6입니다."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "author": "pre_onboarding",
+    "img": "https://images.unsplash.com/photo-1655117070431-0ca113ca5106?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NjUxMzU2Mw&ixlib=rb-1.2.1&q=80&w=600",
+    "like": 3,
+    "comment": []
+  },
+  {
+    "id": 7,
+    "author": "pre_onboarding",
+    "img": "https://images.unsplash.com/photo-1654009603731-20b6d7536002?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1NjUxMzU3NA&ixlib=rb-1.2.1&q=80&w=900",
+    "like": 7,
+    "comment": []
+  }
+]
