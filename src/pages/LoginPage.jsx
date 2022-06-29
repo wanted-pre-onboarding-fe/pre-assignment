@@ -55,15 +55,31 @@ const Button = styled.div`
 `;
 
 function LoginPage() {
+	// const [ id, setId ] = useState('');
+	// const [ Password, setPassword ] = useState('');
+
+	// const onIdHandler = (event) => {
+	// 	setId(event.currentTarget.value);
+	// };
+	// const onPasswordHandler = (event) => {
+	// 	setPassword(event.currentTarget.value);
+	// };
+
 	return (
 		<body>
 			<Container styled="backgroudColor: '#f1f1f1';">
-				{/* <h1>Login page</h1> */}
 				<div>
 					<PageTitle>Login</PageTitle>
 				</div>
 				<Input id="id" name="id" placeholder="아이디를 입력해주세요" />
-				<Input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" />
+				<Input
+					id="password"
+					name="password"
+					type="password"
+					// value={password}
+					placeholder="비밀번호를 입력해주세요"
+					// onChange={onPasswordHandler}
+				/>
 				<Button>로그인</Button>
 			</Container>
 		</body>
