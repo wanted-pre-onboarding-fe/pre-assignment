@@ -1,12 +1,11 @@
-import React, { useRef } from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import Separator from '../components/Seperator';
 import getLoginData from '../utils/getLoginData';
+import throttle from '../utils/throttle';
 
 const BtnImg = styled.img`
   height: 40px;
@@ -60,6 +59,9 @@ function Login() {
     else setValidPwd(false);
   };
 
+  const handleIdInput = useCallback(throttle(validateId, 1000), []);
+  const handlePwdInput = useCallback(throttle(validatePwd, 1000), []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const [id, password] = getLoginData(inputRef);
@@ -98,14 +100,14 @@ function Login() {
           id="id"
           type="text"
           placeholder="전화번호, 사용자 이름 또는 이메일"
-          onBlur={validateId}
+          onInput={handleIdInput}
           valid={isValidId}
         />
         <Input
           id="password"
           type="password"
           placeholder="비밀번호"
-          onBlur={validatePwd}
+          onInput={handlePwdInput}
           valid={isValidPwd}
         ></Input>
         <Button type="submit" disabled={btnDisabled}>
