@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import CommentList from './Comment';
 import Header from './Header';
 import Img from './Img';
@@ -6,7 +6,10 @@ import MenuBar from './MenuBar';
 import WriteComment from './WriteComment';
 import styled from 'styled-components';
 import { grayBorder } from '../../styles/sharedStyles';
-import { useState } from 'react';
+
+const Wrapper = styled.div`
+  display: ${(props) => (props.hidden ? 'none' : 'block')};
+`;
 
 const Feed = styled.article`
   ${grayBorder}
@@ -17,12 +20,18 @@ const Feed = styled.article`
   }
 `;
 
-function Feeds({ setLoading }) {
+function Feeds() {
   const [comments, setComments] = useState([]);
+  const [isAllLoaded, setLoaded] = useState(false);
+  const loaded = useRef([]);
+
   useEffect(() => {
     const getComments = async () => {
       const comments = await (await fetch('/data/feed.json')).json();
-      if (comments) setComments(comments);
+      if (comments) {
+        setComments(comments);
+        loaded.current = new Array(comments.length).fill(false);
+      }
     };
     getComments();
   }, []);
@@ -39,21 +48,33 @@ function Feeds({ setLoading }) {
     setComments(newComments);
   };
 
+  const handleLoad = (idx) => {
+    loaded.current[idx] = true;
+    if (loaded.current.every((loaded) => loaded)) {
+      setTimeout(() => {
+        setLoaded(true);
+      }, 1000);
+    } //모든 이미지의 로딩이 완료됐다고 판단되면 1초후에 피드들을 렌더링
+  };
+
   return (
     <>
-      {comments.map((comment) => (
-        <Feed key={comment.id.toString()}>
-          <Header author={comment.author} />
-          <Img imgSrc={comment.img} />
-          <MenuBar like={comment.like} />
-          <CommentList comments={comment.comment} />
-          <WriteComment
-            onCommentSubmit={(newComment) =>
-              onCommentSubmit(comment.id, newComment)
-            }
-          />
-        </Feed>
-      ))}
+      {!isAllLoaded && <div>Loading...</div>}
+      <Wrapper hidden={!isAllLoaded}>
+        {comments.map((comment, idx) => (
+          <Feed key={comment.id.toString()}>
+            <Header author={comment.author} />
+            <Img imgSrc={comment.img} onLoad={() => handleLoad(idx)} />
+            <MenuBar like={comment.like} />
+            <CommentList comments={comment.comment} />
+            <WriteComment
+              onCommentSubmit={(newComment) =>
+                onCommentSubmit(comment.id, newComment)
+              }
+            />
+          </Feed>
+        ))}
+      </Wrapper>
     </>
   );
 }

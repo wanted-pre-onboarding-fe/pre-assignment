@@ -6,8 +6,8 @@ const SImg = styled.img`
   margin: auto;
 `;
 
-function Img({ imgSrc = '/logo192.png' }) {
-  return <SImg src={imgSrc} onLoad={(e) => console.log(e)} width="100%"></SImg>;
+function Img({ imgSrc = '/logo192.png', onLoad }) {
+  return <SImg src={imgSrc} onLoad={onLoad} width="100%"></SImg>;
 }
 
 export default Img;
