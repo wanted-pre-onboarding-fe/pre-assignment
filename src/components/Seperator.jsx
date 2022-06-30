@@ -1,7 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
+function Separator({ children }) {
+  return (
+    <SSeparator>
+      <div />
+      <p>{children}</p>
+      <div />
+    </SSeparator>
+  );
+}
+export default Separator;
+
 const SSeparator = styled.div`
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,14 +31,3 @@ const SSeparator = styled.div`
     color: #8e8e8e;
   }
 `;
-
-function Separator() {
-  return (
-    <SSeparator>
-      <div />
-      <p>또는</p>
-      <div />
-    </SSeparator>
-  );
-}
-export default Separator;
