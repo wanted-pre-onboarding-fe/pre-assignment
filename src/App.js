@@ -10,7 +10,6 @@ function App() {
     <Layout>
       <Routes>
         <Route index element={<Login />}></Route>
-
         <Route path="main" element={<Main />}></Route>
       </Routes>
     </Layout>

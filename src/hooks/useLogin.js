@@ -23,8 +23,6 @@ function useLogin() {
     else setIsValidPwd(UNVALID);
   };
 
-  const activeButton = isValidEmail === 'VALID';
-
   return [isValidEmail, isValidPwd, checkEmail, checkPwd];
 }
 
