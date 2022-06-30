@@ -1,10 +1,27 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSmile } from '@fortawesome/free-solid-svg-icons';
 import { horizontalAlign } from '../../styles/sharedStyles';
 import styled from 'styled-components';
 
-const CommentBox = styled.div`
+function CommentList({ comments }) {
+  return (
+    <CommentWrapper>
+      {comments.map((comment) => (
+        <Comment key={comment.id}>
+          <p>{comment.commentor}</p>
+          <p>{comment.comment}</p>
+        </Comment>
+      ))}
+    </CommentWrapper>
+  );
+}
+
+export default CommentList;
+
+const CommentWrapper = styled.div`
+  padding: 0 1rem;
+`;
+
+const Comment = styled.div`
   ${horizontalAlign}
   justify-content: flex-start;
   & > p:nth-child(1) {
@@ -20,28 +37,3 @@ const CommentBox = styled.div`
     overflow: wrap;
   }
 `;
-
-const Comment = ({ commentor, comment }) => {
-  return (
-    <CommentBox>
-      <p>{commentor}</p>
-      <p>{comment}</p>
-    </CommentBox>
-  );
-};
-
-function CommentList({ comments }) {
-  return (
-    <div>
-      {comments.map((comment) => (
-        <Comment
-          key={comment.id}
-          commentor={comment.commentor}
-          comment={comment.comment}
-        />
-      ))}
-    </div>
-  );
-}
-
-export default CommentList;

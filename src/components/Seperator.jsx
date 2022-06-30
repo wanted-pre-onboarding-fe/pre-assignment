@@ -5,7 +5,7 @@ function Separator({ children }) {
   return (
     <SSeparator>
       <div />
-      <p>{children}</p>
+      {children && <p>{children}</p>}
       <div />
     </SSeparator>
   );

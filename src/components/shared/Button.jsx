@@ -7,6 +7,11 @@ const Button = styled.button`
   padding: auto auto;
 `;
 
+export const MinimalButton = styled(Button)`
+  background-color: white;
+  color: #0095f6;
+`;
+
 export const LoginButton = styled(Button)`
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
   cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};

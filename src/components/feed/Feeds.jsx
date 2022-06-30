@@ -6,38 +6,27 @@ import MenuBar from './MenuBar';
 import WriteComment from './WriteComment';
 import styled from 'styled-components';
 import { grayBorder } from '../../styles/sharedStyles';
-
-const Wrapper = styled.div`
-  display: ${(props) => (props.hidden ? 'none' : 'block')};
-`;
-
-const Feed = styled.article`
-  ${grayBorder}
-  width: 100%;
-  max-width: 482px;
-  & > * {
-    margin: 15px auto;
-  }
-`;
+import { getFeeds } from '../../api/getFeeds';
+import Separator from '../Seperator';
 
 function Feeds() {
-  const [comments, setComments] = useState([]);
+  const [feeds, setFeeds] = useState([]);
   const [isAllLoaded, setLoaded] = useState(false);
   const loaded = useRef([]);
 
   useEffect(() => {
-    const getComments = async () => {
-      const comments = await (await fetch('/data/feed.json')).json();
-      if (comments) {
-        setComments(comments);
-        loaded.current = new Array(comments.length).fill(false);
+    const fetchFeeds = async () => {
+      const feeds = await getFeeds();
+      if (feeds) {
+        setFeeds(feeds);
+        loaded.current = new Array(feeds.length).fill(false);
       }
     };
-    getComments();
+    fetchFeeds();
   }, []);
 
   const onCommentSubmit = (id, newComment) => {
-    const newComments = [...comments];
+    const newComments = [...feeds];
     const { id: userId } = JSON.parse(localStorage.getItem('userData'));
     const commentId = newComments.findIndex((comment) => comment.id === id);
     newComments[commentId].comment.push({
@@ -45,7 +34,7 @@ function Feeds() {
       comment: newComment,
       id: new Date().getTime(),
     });
-    setComments(newComments);
+    setFeeds(newComments);
   };
 
   const handleLoad = (idx) => {
@@ -61,22 +50,40 @@ function Feeds() {
     <>
       {!isAllLoaded && <div>Loading...</div>}
       <Wrapper hidden={!isAllLoaded}>
-        {comments.map((comment, idx) => (
-          <Feed key={comment.id.toString()}>
-            <Header author={comment.author} />
-            <Img imgSrc={comment.img} onLoad={() => handleLoad(idx)} />
-            <MenuBar like={comment.like} />
-            <CommentList comments={comment.comment} />
-            <WriteComment
-              onCommentSubmit={(newComment) =>
-                onCommentSubmit(comment.id, newComment)
-              }
-            />
-          </Feed>
-        ))}
+        {feeds.map((comment, idx) => {
+          const { id, author, img, like, comment: subComments } = comment;
+          return (
+            <Feed key={id}>
+              <Header author={author} />
+              <Img imgSrc={img} onLoad={() => handleLoad(idx)} />
+              <MenuBar like={like} />
+              <CommentList comments={subComments} />
+              <Separator></Separator>
+              <WriteComment
+                onCommentSubmit={(newComment) =>
+                  onCommentSubmit(comment.id, newComment)
+                }
+              />
+            </Feed>
+          );
+        })}
       </Wrapper>
     </>
   );
 }
 
 export default Feeds;
+
+const Wrapper = styled.div`
+  display: ${(props) => (props.hidden ? 'none' : 'block')};
+`;
+
+const Feed = styled.article`
+  ${grayBorder}
+  width: 100%;
+  max-width: 482px;
+  margin: 20px 0;
+  & > * {
+    margin: 15px auto;
+  }
+`;

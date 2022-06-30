@@ -3,25 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSmile } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 import { horizontalAlign } from '../../styles/sharedStyles';
-import debounce from '../../utils/debounce';
-import { useCallback } from 'react';
-
-const WriteBox = styled.div`
-  padding-top: 15px;
-  border-top: 1px solid #dbdbdb;
-  height: 2rem;
-  width: 100%;
-  ${horizontalAlign}
-  align-items: center;
-`;
-
-const Input = styled.input`
-  background-color: #ededed;
-  width: 80%;
-  height: 100%;
-  padding: 10px 5px;
-  line-height: 2rem;
-`;
+import { MinimalButton } from '../shared/Button';
+import Input from '../shared/Input';
 
 function WriteComment({ onCommentSubmit }) {
   const [comment, setComment] = useState('');
@@ -30,14 +13,15 @@ function WriteComment({ onCommentSubmit }) {
     setComment(e.target.value);
   };
 
-  const handleCommentSubmit = debounce((e) => {
-    e?.preventDefault();
+  const handleCommentSubmit = (e) => {
+    e.preventDefault();
     onCommentSubmit(comment);
     setComment('');
-  }, 50);
+  };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+    console.log(e);
+    if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
       handleCommentSubmit(e);
     }
   };
@@ -51,12 +35,23 @@ function WriteComment({ onCommentSubmit }) {
         onChange={handleCommentChange}
         onKeyDown={handleKeyPress}
         placeholder="댓글달기..."
+        width="80%"
+        borderRadius="5px"
       />
-      <button type="submit" onClick={handleCommentSubmit}>
+      <MinimalButton type="submit" onClick={handleCommentSubmit}>
         게시
-      </button>
+      </MinimalButton>
     </WriteBox>
   );
 }
 
 export default WriteComment;
+
+const WriteBox = styled.div`
+  width: 100%;
+  margin: auto 0;
+  padding: 1rem 1rem;
+  padding-top: 0;
+  ${horizontalAlign}
+  align-items: center;
+`;

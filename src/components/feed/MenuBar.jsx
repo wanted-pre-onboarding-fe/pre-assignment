@@ -1,33 +1,24 @@
+import {
+  faBookmark,
+  faComment,
+  faHeart,
+  faShare,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
 import { horizontalAlign } from '../../styles/sharedStyles';
-
-const Wrapper = styled.div`
-  & > * {
-    padding: 10px 5px;
-  }
-`;
-
-const Menu = styled.div`
-  ${horizontalAlign}
-  & > div {
-    ${horizontalAlign}
-    & > * {
-      margin-right: 5px;
-    }
-  }
-`;
 
 function MenuBar({ like = 7 }) {
   return (
     <Wrapper>
       <Menu>
         <div>
-          <p>하트</p>
-          <p>코멘트</p>
-          <p>공유</p>
+          <FontAwesomeIcon icon={faHeart} size="lg" />
+          <FontAwesomeIcon icon={faComment} size="lg" />
+          <FontAwesomeIcon icon={faShare} size="lg" />
         </div>
-        <p>책갈피</p>
+        <FontAwesomeIcon icon={faBookmark} size="lg" />
       </Menu>
       <div>좋아요 {like}개</div>
     </Wrapper>
@@ -35,3 +26,18 @@ function MenuBar({ like = 7 }) {
 }
 
 export default MenuBar;
+
+const Wrapper = styled.div`
+  padding: 1rem 1rem;
+`;
+
+const Menu = styled.div`
+  ${horizontalAlign}
+  & > div {
+    height: 2rem;
+    ${horizontalAlign}
+    & > * {
+      margin-right: 5px;
+    }
+  }
+`;
