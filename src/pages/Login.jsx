@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { Navigate } from 'react-router-dom';
 import { EmailValidation, PasswordValidation } from '../utils/validation';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -9,8 +8,8 @@ const Login = () => {
   const idInputRef = useRef('');
   const passwordInputRef = useRef('');
   const [isValid, setIsValid] = useState({
-    id: undefined, //처음부터 빨간 border를 보여주지 않기위해서 초기값 true
-    password: undefined, //처음부터 빨간 border를 보여주지 않기위해서 초기값 true
+    id: undefined,
+    password: undefined,
     isVerfied: undefined,
   });
   const testId = { id: 'wanted@gmail.com', password: 'Wanted123!' }; //일치 여부 확인용 등록아이디

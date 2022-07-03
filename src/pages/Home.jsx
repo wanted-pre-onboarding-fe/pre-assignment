@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState } from 'react';
-import { Link, Route } from 'react-router-dom';
-import Login from './Login';
 import { Navigate } from 'react-router-dom';
 import Feed from '../components/Feed';
 import axios from 'axios';
@@ -22,11 +20,6 @@ const Home = () => {
     getFeeds();
   }, []);
 
-  useEffect(() => {
-    if (feeds) {
-      console.log(feeds);
-    }
-  }, [feeds]);
   return (
     <Container>
       <main>
@@ -47,7 +40,3 @@ const Container = styled.div`
     margin: 0 auto;
   }
 `;
-
-// @media (max-width: 767px) {
-//   justify-content: space-between;
-// }

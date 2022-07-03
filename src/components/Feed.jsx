@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Comment from './Comment';
+import { useState, useRef } from 'react';
+import { BsThreeDots } from 'react-icons/bs';
 import {
   FaCircle,
   FaRegHeart,
@@ -8,31 +11,21 @@ import {
   FaRegSmile,
   FaRegBookmark,
 } from 'react-icons/fa';
-import { BsThreeDots } from 'react-icons/bs';
-import Comment from './Comment';
-import { useState } from 'react';
-import { useRef } from 'react';
 
-const Feeds = ({ feed }) => {
+const Feed = ({ feed }) => {
   const { nickName, image, comments } = feed;
   const [commentList, setCommentList] = useState(comments);
   const inputRef = useRef('');
   const myId = window.localStorage.getItem('id').split('@')[0].toString();
   const [loading, setLoading] = useState(true);
 
-  function OnClick() {
+  function PostComment() {
     setCommentList([
       ...commentList,
       { nickName: myId, content: inputRef.currnet },
     ]);
     inputRef.current.value = '';
     inputRef.current.focus();
-  }
-
-  function OnKeyPress(e) {
-    if (e.key === 'Enter') {
-      return OnClick();
-    }
   }
 
   return (
@@ -69,15 +62,19 @@ const Feeds = ({ feed }) => {
         <input
           ref={inputRef}
           onChange={(e) => (inputRef.currnet = e.target.value)}
-          onKeyPress={(e) => OnKeyPress(e)}
+          onKeyPress={(e) => {
+            if (e.target === 'Enter') {
+              PostComment();
+            }
+          }}
         />
-        <button onClick={OnClick}>게시</button>
+        <button onClick={PostComment}>게시</button>
       </div>
     </Container>
   );
 };
 
-export default Feeds;
+export default Feed;
 
 const Container = styled.div`
   display: ${(props) => (props.isLoaded ? 'none' : 'flex')};
