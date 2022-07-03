@@ -16,17 +16,14 @@ const Login = () => {
 
   function CheckValidation(e, result) {
     // 유효성검사 - 아이디, 패스워드
-    if (result) {
-      const check = { ...isValid, [e.target.name]: result };
-      setIsValid(check);
-    } else {
-      setIsValid({ ...isValid, [e.target.name]: false });
-    }
+    setIsValid({ ...isValid, [e.target.name]: result });
   }
 
   useEffect(() => {
     if (isValid.id && isValid.password) {
       setIsValid({ ...isValid, isVerfied: true });
+    } else {
+      setIsValid({ ...isValid, isVerfied: false });
     }
   }, [isValid.id, isValid.password]);
 
