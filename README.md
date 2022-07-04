@@ -7,7 +7,7 @@
 # 과제 풀이
 * 테스트 계정
   - email : test@test.com
-  - password : test!Test
+  - password : test!4Test
  
 * 저는 제일 먼저 노트에 컴포넌트 구성을 어떤 식으로 할 지, 유저입장에서 프로그램이 어떤 순서로 작동되게 될 지, 로직은 어떤 식으로 짜야할지 간단하게 생각한 후 개발을 하곤 합니다.
 <image src="https://velog.velcdn.com/images/brill_be/post/70c4e9d8-ef69-4a4c-b2ec-07b3271ddc8f/image.jpeg" height="400px" alt="노트1"/>
