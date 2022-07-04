@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { getUserData } from '../../api/api';
 import { GLOBAL_COLOR } from '../../styles/constants';
@@ -25,6 +25,8 @@ const Login = () => {
     setPassword(value);
     setIsValidPassword(checkPWValidation(value));
   };
+
+  console.log(userId);
 
   const handleLogin = () => {
     const user = userList.find(
