@@ -7,13 +7,13 @@ function App() {
     location: { pathname },
   } = window;
 
-  const Component =
+  const Route =
     {
       '/': Login,
       '/main': Main,
     }[pathname] || Login;
 
-  return <Component />;
+  return <Route />;
 }
 
 export default App;
