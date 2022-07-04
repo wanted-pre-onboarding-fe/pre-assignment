@@ -18,6 +18,8 @@ const Feed = ({ value }) => {
     };
   }, [img]);
 
+  console.log(isLoading);
+
   const handleNewComment = (e) => {
     setNewComment(e.target.value);
   };
