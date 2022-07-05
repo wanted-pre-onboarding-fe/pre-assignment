@@ -1,8 +1,8 @@
 import React from 'react';
-import PreAssignmentGuide from './pages/PreAssignmentGuide';
+import Feeds from './pages/Feeds';
 
 function App() {
-  return <PreAssignmentGuide />;
+  return <Feeds />;
 }
 
 export default App;
