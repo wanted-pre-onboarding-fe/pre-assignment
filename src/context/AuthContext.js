@@ -11,7 +11,7 @@ const defaultContext = {
 const AuthContext = React.createContext(defaultContext);
 
 const AuthContextProvider = ({ children }) => {
-  let userLog = new Storage('userLog');
+  let userLog = new Storage('user');
 
   const [isLoggedIn, setIsLoggedIn] = React.useState(
     !!userLog.getItem('isLoggedIn') // false
@@ -26,10 +26,11 @@ const AuthContextProvider = ({ children }) => {
 
   const logout = () => {
     userLog.clear();
-    setIsLoggedIn(null);
+    // userLog.setItem('isLoggedIn', false);
+    setIsLoggedIn(false);
   };
 
-  const value = { isLoggedIn, login, logout };
+  const value = { isLoggedIn, login, logout, userLog };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

@@ -9,10 +9,10 @@ import { useAuthState } from '../../context/AuthContext';
 const Login = () => {
   const [emailState, setEmailState] = useState('');
   const [passwordState, setPasswardState] = useState('');
-  const { login } = useAuthState();
+  const { login, logout, userLog } = useAuthState();
   const emailRef = React.useRef();
   const passwordRef = React.useRef();
-  const userLog = new Storage('user');
+  // const userLog = new Storage('user');
 
   // e(email, passward), ref(emailRef,passwordRef)
   const handleInput = (e, ref) => {
@@ -29,9 +29,9 @@ const Login = () => {
       userLog.save();
     }
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    login();
   };
 
   useEffect(() => {}, []);
