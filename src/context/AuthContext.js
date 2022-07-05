@@ -26,7 +26,6 @@ const AuthContextProvider = ({ children }) => {
 
   const logout = () => {
     userLog.clear();
-    // userLog.setItem('isLoggedIn', false);
     setIsLoggedIn(false);
   };
 

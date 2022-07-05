@@ -3,7 +3,6 @@ export default Storage = function (app) {
   this.app = app;
   // 스토리지로부터 읽어들인 객체
   this.storage = localStorage;
-
   // 해당하는 객체가 없을 경우 빈 객체를 생성
   this.data = JSON.parse(this.storage[this.app] || '{}');
 };
@@ -21,7 +20,7 @@ Storage.prototype = {
   save: function () {
     this.storage[this.app] = JSON.stringify(this.data);
   },
-
+  // Storage 객체의 내용 비우기
   clear: function () {
     this.storage.clear();
   },

@@ -6,31 +6,33 @@ import Button from '../../components/Button';
 import Logo from '../../components/Logo';
 import { useAuthState } from '../../context/AuthContext';
 
+const EMAIL = 'email';
+const PASSWORD = 'password';
+
 const Login = () => {
   const [emailState, setEmailState] = useState('');
   const [passwordState, setPasswardState] = useState('');
   const { login, logout, userLog } = useAuthState();
   const emailRef = React.useRef();
   const passwordRef = React.useRef();
-  // const userLog = new Storage('user');
 
   // e(email, passward), ref(emailRef,passwordRef)
   const handleInput = (e, ref) => {
     ref.current.value = e.target.value;
     const { id, value } = ref.current;
-    console.log(id, value);
-    if (id === 'email') {
-      setEmailState(value);
-      userLog.setItem(id, value);
-      userLog.save();
-    } else if (id === 'password') {
-      setPasswardState(value);
-      userLog.setItem(id, value);
-      userLog.save();
-    }
+    // console.log(id, value);
+    id === 'email' ? setEmailState(value) : setPasswardState(value);
+
+    // 정규성 검사
+  };
+  const handledeletClick = () => {
+    logout();
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    const inputTarget = e.target;
+    userLog.setItem(EMAIL, emailState);
+    userLog.setItem(PASSWORD, passwordState);
     login();
   };
 
@@ -68,6 +70,9 @@ const Login = () => {
         <BtnImg src="" alt="" />
         <BtnImg src="" alt="" />
       </div>
+      <Button type="submit" onClick={handledeletClick}>
+        로그아웃
+      </Button>
     </Wrapper>
   );
 };

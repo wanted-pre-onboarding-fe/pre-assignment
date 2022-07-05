@@ -1,7 +1,7 @@
 import React from 'react';
 import Routes from './Route.js';
 import { AuthContextProvider } from './context/AuthContext';
-import Login from './pages/Login/index.js';
+import Login from './pages/Login';
 
 const App = () => {
   return (
