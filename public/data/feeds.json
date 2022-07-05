@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "author": "문성운",
+    "profileImage": "url",
+    "postImage": "url",
+    "like": 1000000,
+    "comments": [
+      {
+        "id": 1,
+        "author": "기본",
+        "comment": "댓글이야"
+      },
+      {
+        "id": 2,
+        "author": "lorem",
+        "comment": "Lorem ipsum dolor sit amet."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "author": "이진희",
+    "profileImage": "url",
+    "postImage": "url",
+    "like": 2000000,
+    "comments": [
+      {
+        "id": 1,
+        "author": "기본",
+        "comment": "댓글이야"
+      },
+      {
+        "id": 2,
+        "author": "lorem",
+        "comment": "Lorem ipsum dolor sit amet."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "author": "임은지",
+    "profileImage": "url",
+    "postImage": "url",
+    "like": 3000000,
+    "comments": [
+      {
+        "id": 1,
+        "author": "기본",
+        "comment": "댓글이야"
+      },
+      {
+        "id": 2,
+        "author": "lorem",
+        "comment": "Lorem ipsum dolor sit amet."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "author": "엄일경",
+    "profileImage": "url",
+    "postImage": "url",
+    "like": 2000000,
+    "comments": [
+      {
+        "id": 1,
+        "author": "기본",
+        "comment": "댓글이야"
+      },
+      {
+        "id": 2,
+        "author": "lorem",
+        "comment": "Lorem ipsum dolor sit amet."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "author": "오태권",
+    "profileImage": "url",
+    "postImage": "url",
+    "like": 5000000,
+    "comments": [
+      {
+        "id": 1,
+        "author": "기본",
+        "comment": "댓글이야"
+      },
+      {
+        "id": 2,
+        "author": "lorem",
+        "comment": "Lorem ipsum dolor sit amet."
+      }
+    ]
+  }
+]
