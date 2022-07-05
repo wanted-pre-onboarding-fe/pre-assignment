@@ -5,7 +5,7 @@ const ROUTE_PATH_LOGIN = '/';
 const ROUTE_PATH_FEEDS = '/feeds';
 
 export default function Router() {
-  const isAuth = false;
+  const isAuth = false; // get context
   return (
     <Routes>
       <Route path={ROUTE_PATH_LOGIN} element={<AuthLogin isAuth={isAuth} />} />
