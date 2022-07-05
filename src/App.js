@@ -1,8 +1,17 @@
 import React from 'react';
-import Feeds from './pages/Feeds';
+import Routes from './Route.js';
+import { AuthContextProvider } from './context/AuthContext';
+import Login from './pages/Login';
 
-function App() {
-  return <Feeds />;
-}
+const App = () => {
+  return (
+    <>
+      <AuthContextProvider>
+        {/* <Routes /> */}
+        <Login />
+      </AuthContextProvider>
+    </>
+  );
+};
 
 export default App;
