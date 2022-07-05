@@ -1,5 +1,6 @@
 import React from 'react';
 import Storage from '../utils/helpers/stroage';
+import { setItem, getItem, removeItem } from '../utils/helpers/stroage';
 
 const defaultContext = {
   isLoggedIn: false,
@@ -10,26 +11,24 @@ const defaultContext = {
 
 const AuthContext = React.createContext(defaultContext);
 
+const LOG_KEY = 'isLoggedIn';
 const AuthContextProvider = ({ children }) => {
-  let userLog = new Storage('user');
-
   const [isLoggedIn, setIsLoggedIn] = React.useState(
-    !!userLog.getItem('isLoggedIn') // false
+    !!getItem(LOG_KEY) // false
   );
 
   const login = () => {
-    userLog.setItem('isLoggedIn', true);
-    userLog.save();
-    const token = userLog.getItem('isLoggedIn');
+    setItem(LOG_KEY, true);
+    const token = getItem(LOG_KEY);
     setIsLoggedIn(token);
   };
 
   const logout = () => {
-    userLog.clear();
+    removeItem(LOG_KEY);
     setIsLoggedIn(false);
   };
 
-  const value = { isLoggedIn, login, logout, userLog };
+  const value = { isLoggedIn, login, logout };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
