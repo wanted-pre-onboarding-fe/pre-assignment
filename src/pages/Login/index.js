@@ -16,18 +16,14 @@ const Login = () => {
   const emailRef = React.useRef();
   const passwordRef = React.useRef();
 
-  // e(email, passward), ref(emailRef,passwordRef)
   const handleInput = (e, ref) => {
     ref.current.value = e.target.value;
     const { id, value } = ref.current;
-    // console.log(id, value);
     id === 'email' ? setEmailState(value) : setPasswardState(value);
 
     // 정규성 검사
   };
-  const handledeletClick = () => {
-    logout();
-  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const inputTarget = e.target;
@@ -70,9 +66,6 @@ const Login = () => {
         <BtnImg src="" alt="" />
         <BtnImg src="" alt="" />
       </div>
-      <Button type="submit" onClick={handledeletClick}>
-        로그아웃
-      </Button>
     </Wrapper>
   );
 };
