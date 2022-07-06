@@ -1,18 +1,32 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
 import GNB from '../../components/GNB';
+import FeedContainer from './FeedContainer';
 
 function Feeds() {
+  const [feeds, setFeeds] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    try {
+      setIsLoading(true);
+      fetch('/data/feeds.json')
+        .then((res) => res.json())
+        .then((data) => {
+          setFeeds(data);
+          setIsLoading(false);
+        });
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
+    }
+  }, []);
+
   return (
-    <Container>
+    <>
       <GNB />
-    </Container>
+      <FeedContainer feeds={feeds} isLoading={isLoading} />
+    </>
   );
 }
 
 export default Feeds;
-
-const Container = styled.div`
-  height: 200vh;
-  background-image: linear-gradient(red, yellow, green);
-`;
