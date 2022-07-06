@@ -15,17 +15,14 @@ function FeedContainer({ feeds, isLoading }) {
 export default FeedContainer;
 
 const Container = styled.div`
-  max-width: 550px;
-  min-width: 470px;
-  width: 40%;
-  margin-top: 20px;
-  border: 1px solid lightgray;
-  border-radius: 10px;
+  width: 100%;
   background-color: #fafafa;
   display: flex;
   flex-direction: column;
-  @media (max-width: 499px) {
-    min-width: 0px;
-    width: 95%;
+  align-items: center;
+  & > div {
+    :last-child {
+      margin-bottom: 20px;
+    }
   }
 `;
