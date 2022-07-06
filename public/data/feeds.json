@@ -3,7 +3,7 @@
     "id": 1,
     "author": "문성운",
     "profileImage": "url",
-    "postImage": "url",
+    "postImage": "https://source.unsplash.com/random/600x500",
     "like": 1000000,
     "comments": [
       {
@@ -22,7 +22,7 @@
     "id": 2,
     "author": "이진희",
     "profileImage": "url",
-    "postImage": "url",
+    "postImage": "https://source.unsplash.com/random/900x500",
     "like": 2000000,
     "comments": [
       {
@@ -41,7 +41,7 @@
     "id": 3,
     "author": "임은지",
     "profileImage": "url",
-    "postImage": "url",
+    "postImage": "https://source.unsplash.com/random/700x1080",
     "like": 3000000,
     "comments": [
       {
@@ -60,7 +60,7 @@
     "id": 4,
     "author": "엄일경",
     "profileImage": "url",
-    "postImage": "url",
+    "postImage": "https://source.unsplash.com/random/600x500",
     "like": 2000000,
     "comments": [
       {
@@ -79,7 +79,7 @@
     "id": 5,
     "author": "오태권",
     "profileImage": "url",
-    "postImage": "url",
+    "postImage": "https://source.unsplash.com/random/900x500",
     "like": 5000000,
     "comments": [
       {
