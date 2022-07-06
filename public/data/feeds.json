@@ -2,7 +2,7 @@
   {
     "id": 1,
     "author": "문성운",
-    "profileImage": "url",
+    "profileImage": "https://avatars.githubusercontent.com/u/83255812?v=4",
     "postImage": "https://source.unsplash.com/random/600x500",
     "like": 1000000,
     "comments": [
@@ -21,7 +21,7 @@
   {
     "id": 2,
     "author": "이진희",
-    "profileImage": "url",
+    "profileImage": "https://avatars.githubusercontent.com/u/49019236?s=96&v=4",
     "postImage": "https://source.unsplash.com/random/900x500",
     "like": 2000000,
     "comments": [
@@ -40,7 +40,7 @@
   {
     "id": 3,
     "author": "임은지",
-    "profileImage": "url",
+    "profileImage": "https://avatars.githubusercontent.com/u/56745387?s=96&v=4",
     "postImage": "https://source.unsplash.com/random/700x1080",
     "like": 3000000,
     "comments": [
@@ -59,7 +59,7 @@
   {
     "id": 4,
     "author": "엄일경",
-    "profileImage": "url",
+    "profileImage": "https://avatars.githubusercontent.com/u/87417323?s=96&v=4",
     "postImage": "https://source.unsplash.com/random/600x500",
     "like": 2000000,
     "comments": [
@@ -78,7 +78,7 @@
   {
     "id": 5,
     "author": "오태권",
-    "profileImage": "url",
+    "profileImage": "https://avatars.githubusercontent.com/u/75871005?v=4",
     "postImage": "https://source.unsplash.com/random/900x500",
     "like": 5000000,
     "comments": [
